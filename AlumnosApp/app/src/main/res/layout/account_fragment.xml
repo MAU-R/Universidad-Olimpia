@@ -5,7 +5,7 @@
 
         <variable
             name="user"
-            type="com.example.alumnosapp.domain.model.User" />
+            type="com.example.alumnosapp.domain.model.Alumno" />
 
     </data>
 

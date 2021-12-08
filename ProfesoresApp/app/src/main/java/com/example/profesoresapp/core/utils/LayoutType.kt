@@ -1,5 +1,4 @@
-package com.example.alumnosapp.core.utils
-
+package com.example.profesoresapp.core.utils
 
 enum class LayoutType {
 

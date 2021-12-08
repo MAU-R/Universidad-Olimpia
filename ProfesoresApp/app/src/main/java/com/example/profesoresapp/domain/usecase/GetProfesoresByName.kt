@@ -1,5 +1,6 @@
 package com.example.profesoresapp.domain.usecase
 
+
 import com.example.profesoresapp.core.interactor.UseCase
 import com.example.profesoresapp.data.dto.ProfesoresResponse
 import com.example.profesoresapp.domain.repository.ProfesorRepository
@@ -9,5 +10,5 @@ class GetProfesoresByName @Inject constructor(private val profesorRepository: Pr
     UseCase<ProfesoresResponse, String>() {
 
     override suspend fun run(params: String) = profesorRepository.getProfesoresByName(params)
-}
 
+}

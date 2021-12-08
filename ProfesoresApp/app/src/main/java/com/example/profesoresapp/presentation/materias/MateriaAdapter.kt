@@ -1,4 +1,4 @@
-package com.example.alumnosapp.presentation.materias
+package com.example.profesoresapp.presentation.materias
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -6,12 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.amalip.cocktailapp.core.utils.LayoutType
-import com.example.alumnosapp.databinding.RowMateriasBinding
-import com.example.alumnosapp.domain.model.Materia
-import dagger.hilt.android.AndroidEntryPoint
-import dagger.hilt.android.WithFragmentBindings
-import kotlinx.coroutines.DelicateCoroutinesApi
+import com.example.profesoresapp.databinding.RowMateriasBinding
+import com.example.profesoresapp.domain.model.Materia
 
 @SuppressLint("NotifyDataSetChanged")
 class MateriaAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {

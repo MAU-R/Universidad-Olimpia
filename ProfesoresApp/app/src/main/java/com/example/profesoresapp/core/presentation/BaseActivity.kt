@@ -14,6 +14,8 @@ abstract class BaseActivity : AppCompatActivity() {
 
     abstract fun showProgress(show: Boolean)
 
+    abstract fun setBottomNavVisibility(visibility: Int)
+
     abstract fun setBinding()
 
 }

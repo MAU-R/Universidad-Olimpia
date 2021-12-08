@@ -1,8 +1,8 @@
 package com.example.profesoresapp.core.di
 
 import android.content.Context
+import com.example.alumnosapp.framework.api.ApiProvider
 import com.example.profesoresapp.core.plataform.NetworkHandler
-import com.example.profesoresapp.framework.api.ApiProvider
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

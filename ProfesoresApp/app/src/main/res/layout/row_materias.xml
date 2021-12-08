@@ -7,7 +7,7 @@
 
         <variable
             name="item"
-            type="com.amalip.exam2.domain.model.Category" />
+            type="com.example.profesoresapp.domain.model.Materia" />
 
     </data>
 
@@ -21,19 +21,19 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/imgCocktail"
-                loadFromURL="@{item.urlThumb}"
+                android:id="@+id/imgSubject"
+                loadFromURL="@{item.foto}"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_margin="10dp"
-                app:layout_constraintBottom_toTopOf="@id/txvName"
+                app:layout_constraintBottom_toTopOf="@id/txvNameMateria"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:src="@tools:sample/avatars" />
 
             <TextView
-                android:id="@+id/txvName"
+                android:id="@+id/txvNameMateria"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
@@ -42,10 +42,10 @@
                 android:text="@{item.name}"
                 android:textAlignment="center"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@id/imgCocktail"
-                app:layout_constraintStart_toStartOf="@id/imgCocktail"
-                app:layout_constraintTop_toBottomOf="@id/imgCocktail"
-                tools:text="dsadaaaaaaaaaaaaaaaaa" />
+                app:layout_constraintEnd_toEndOf="@id/imgSubject"
+                app:layout_constraintStart_toStartOf="@id/imgSubject"
+                app:layout_constraintTop_toBottomOf="@id/imgSubject"
+                tools:text="Materia" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

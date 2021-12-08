@@ -1,18 +1,18 @@
 package com.example.profesoresapp.data.dao
-
+/*
 import androidx.room.*
 import androidx.room.OnConflictStrategy.IGNORE
-import com.example.profesoresapp.domain.model.Profesor
+import com.example.alumnosapp.domain.model.Alumno
 
 @Dao
-interface ProfesorDao {
+interface AlumnoDao {
 
-    @Query("SELECT * FROM Profesor WHERE name LIKE :filter")
-    fun getProfesoresByName(filter: String): List<Profesor>
+    @Query("SELECT * FROM Alumno WHERE name LIKE :filter")
+    fun getAlumnosByName(filter: String): List<Alumno>
 
     @Insert(onConflict = IGNORE)
-    fun saveProfesores(profesores: List<Profesor>): List<Long>
+    fun saveAlumnos(alumnos: List<Alumno>): List<Long>
 
     @Update
-    fun updateProfesor(profesor: Profesor): Int
-}
+    fun updateAlumno(alumno: Alumno): Int
+}*/

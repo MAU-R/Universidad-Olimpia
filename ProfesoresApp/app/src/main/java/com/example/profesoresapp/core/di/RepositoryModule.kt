@@ -2,6 +2,9 @@ package com.example.profesoresapp.core.di
 
 
 import com.example.profesoresapp.core.plataform.NetworkHandler
+import com.example.profesoresapp.data.api.ProfesorApi
+import com.example.profesoresapp.data.source.ProfesorRepositoryImpl
+import com.example.profesoresapp.domain.repository.ProfesorRepository
 import com.example.profesoresapp.framework.api.ApiProvider
 import dagger.Module
 import dagger.Provides
@@ -15,33 +18,9 @@ object RepositoryModule {
 
     @Provides
     @Singleton
-    fun provideCategoryRepository(
+    fun provideProfesorRepository(
         apiProvider: ApiProvider,
-        schoolDb: SchoolDb,
         networkHandler: NetworkHandler
-    ): AlumnosRepository =
-        AlumnosRepositoryImpl(
-            apiProvider.getEndpoint(SchoolApi::class.java),
-            SchoolDb.AlumnosDao(),
-            networkHandler
-        )
-
-    @Provides
-    @Singleton
-    fun provideMealRepository(
-        apiProvider: ApiProvider,
-        schoolDb: SchoolDb,
-        networkHandler: NetworkHandler
-    ): AlumnosRepository =
-        AlumnosRepositoryImpl(
-            apiProvider.getEndpoint(SchoolApi::class.java),
-            SchoolDb.AlumnosDao(),
-            networkHandler
-        )
-
-    @Provides
-    @Singleton
-    fun provideUserRepository(authManager: AuthManager, schoolDb: SchoolDb): UserRepository =
-        UserRepositoryImpl(authManager, schoolDb: SchoolDb())
-
+    ): ProfesorRepository =
+        ProfesorRepositoryImpl(apiProvider.getEndpoint(ProfesorApi::class.java), networkHandler)
 }

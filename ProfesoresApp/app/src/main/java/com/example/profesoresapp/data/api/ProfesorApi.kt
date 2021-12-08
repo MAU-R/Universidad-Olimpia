@@ -6,6 +6,8 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface ProfesorApi {
+
     @GET("")
     fun getProfesoresByName(@Query("s") name: String): Call<ProfesoresResponse>
+
 }

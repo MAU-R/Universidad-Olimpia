@@ -2,7 +2,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".presentation.categories.CategoryFragment">
+    tools:context=".presentation.materias.MateriaFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -18,14 +18,14 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rcCategories"
+                android:id="@+id/rcMaterias"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:visibility="gone"
                 app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                 app:spanCount="3"
                 tools:itemCount="10"
-                tools:listitem="@layout/row_subjects"
+                tools:listitem="@layout/row_materias"
                 tools:visibility="visible" />
 
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
@@ -36,6 +36,4 @@
             tools:visibility="gone" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 </layout>

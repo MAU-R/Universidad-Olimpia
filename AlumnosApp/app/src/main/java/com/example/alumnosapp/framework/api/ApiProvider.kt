@@ -1,6 +1,6 @@
 package com.example.alumnosapp.framework.api
 
-import com.example.alumnosapp.BuildConfig
+import androidx.databinding.ktx.BuildConfig
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -27,7 +27,7 @@ class ApiProvider @Inject constructor() {
         }
 
         retrofit = Retrofit.Builder()
-            .baseUrl(BuildConfig.API_BASE_URL)
+            .baseUrl("http://189.162.23.43:8080/school/")
             .addConverterFactory(MoshiConverterFactory.create())
             .client(httpClientBuilder.build())
             .build()

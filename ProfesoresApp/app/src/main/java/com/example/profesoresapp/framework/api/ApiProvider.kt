@@ -8,7 +8,6 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
-
 class ApiProvider @Inject constructor() {
 
     private var retrofit: Retrofit
@@ -28,11 +27,12 @@ class ApiProvider @Inject constructor() {
         }
 
         retrofit = Retrofit.Builder()
-            .baseUrl(BuildConfig.API_BASE_URL)
+            .baseUrl("http://189.162.23.43:8080/school/")
             .addConverterFactory(MoshiConverterFactory.create())
             .client(httpClientBuilder.build())
             .build()
     }
 
     fun <S> getEndpoint(serviceClass: Class<S>): S = retrofit.create(serviceClass)
+
 }

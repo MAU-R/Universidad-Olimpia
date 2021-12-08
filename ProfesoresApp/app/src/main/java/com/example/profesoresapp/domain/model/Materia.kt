@@ -8,12 +8,12 @@ import com.squareup.moshi.JsonClass
 import kotlinx.parcelize.Parcelize
 
 @JsonClass(generateAdapter = true)
-class Profesor(
-    val idProfesor: Int = 0,
+class Materia(
+    val idMateria: Int = 0,
     @Json(name = "") val name: String = "",
     @Json(name = "") val foto: String = "",
-    @Json(name = "") val apellidopa: String = "",
-    @Json(name = "") val apellidoma: String = "",
-    @Json(name = "") val correo: String = ""
+    @Json(name = "") val afgh: String = "",
+    @Json(name = "") val a: String = "",
+    @Json(name = "") val c: String = ""
 ) {
 }
