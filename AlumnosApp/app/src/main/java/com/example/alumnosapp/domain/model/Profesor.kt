@@ -1,4 +1,4 @@
-package com.example.profesoresapp.domain.model
+package com.example.alumnosapp.domain.model
 
 import android.os.Parcelable
 import androidx.room.Entity

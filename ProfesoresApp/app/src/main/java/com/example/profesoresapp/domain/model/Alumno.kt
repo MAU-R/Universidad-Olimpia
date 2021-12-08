@@ -1,15 +1,11 @@
 package com.example.profesoresapp.domain.model
 
-import android.os.Parcelable
-import androidx.room.Entity
-import androidx.room.PrimaryKey
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
-import kotlinx.parcelize.Parcelize
 
 @JsonClass(generateAdapter = true)
-class Profesor(
-    @Json (name="matricula")  val idProfesor: Int = 0,
+class Alumno(
+    @Json (name="matricula")  val idAlumno: Int = 0,
     @Json(name = "nombre") val name: String = "",
     @Json(name = "foto") val foto: String = "",
     @Json(name = "apellido_paterno") val apellidopa: String = "",
