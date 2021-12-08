@@ -8,8 +8,8 @@
     <fragment
         android:id="@+id/categoryFragment"
         android:name="com.amalip.exam2.presentation.categories.CategoryFragment"
-        android:label="category_fragment"
-        tools:layout="@layout/category_fragment">
+        android:label="loginFragment"
+        tools:layout="@layout/login_fragment">
         <action
             android:id="@+id/action_categoryFragment_to_mealsFragment"
             app:destination="@id/mealsFragment"

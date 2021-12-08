@@ -1,6 +1,5 @@
 package com.example.alumnosapp.core.interactor
 
-import com.example.alumnosapp.core.exception.Failure
 import com.example.alumnosapp.core.functional.Either
 import kotlinx.coroutines.*
 

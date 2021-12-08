@@ -7,7 +7,7 @@
 
         <variable
             name="item"
-            type="com.amalip.exam2.domain.model.Category" />
+            type="com.example.alumnosapp.domain.model.Materia" />
 
     </data>
 
@@ -22,7 +22,7 @@
 
             <ImageView
                 android:id="@+id/imgCocktail"
-                loadFromURL="@{item.urlThumb}"
+                loadFromURL="@{item.foto}"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_margin="10dp"
@@ -45,7 +45,7 @@
                 app:layout_constraintEnd_toEndOf="@id/imgCocktail"
                 app:layout_constraintStart_toStartOf="@id/imgCocktail"
                 app:layout_constraintTop_toBottomOf="@id/imgCocktail"
-                tools:text="dsadaaaaaaaaaaaaaaaaa" />
+                tools:text="Materia" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

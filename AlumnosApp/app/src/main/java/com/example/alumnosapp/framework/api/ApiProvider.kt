@@ -1,13 +1,12 @@
 package com.example.alumnosapp.framework.api
 
-import androidx.databinding.ktx.BuildConfig
+import com.example.alumnosapp.BuildConfig
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
-
 
 class ApiProvider @Inject constructor() {
 
@@ -35,4 +34,5 @@ class ApiProvider @Inject constructor() {
     }
 
     fun <S> getEndpoint(serviceClass: Class<S>): S = retrofit.create(serviceClass)
+
 }

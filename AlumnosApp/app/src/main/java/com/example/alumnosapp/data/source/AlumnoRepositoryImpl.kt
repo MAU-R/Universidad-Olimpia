@@ -1,6 +1,5 @@
 package com.example.alumnosapp.data.source
 
-import com.example.alumnosapp.core.exception.Failure
 import com.example.alumnosapp.core.functional.Either
 import com.example.alumnosapp.core.plataform.NetworkHandler
 import com.example.alumnosapp.data.api.AlumnoApi

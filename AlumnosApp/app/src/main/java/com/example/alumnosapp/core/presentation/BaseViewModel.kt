@@ -2,7 +2,6 @@ package com.example.alumnosapp.core.presentation
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.alumnosapp.core.exception.Failure
 
 abstract class BaseViewModel : ViewModel() {
 
