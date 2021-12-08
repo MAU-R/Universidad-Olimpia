@@ -17,15 +17,13 @@ public interface DetalleRepository {
     int updateMaestro(int id);
 
     DetalleMateria findById(String id);
-
+    DetalleMateria findByIdAndAlumnoId(String id, int ida);
     Materia findByAlumnoId(int id);
-
     DetalleMateria findByMateriaId(int id);
-
     DetalleMateria findByMaestroId(int id);
-
-    List<Alumno> findAlumnos(int id);
-
+    List<DetalleMateria> findAllByMaestroId(int id);
+    List<Alumno> findAlumnos(String id);
+    List<DetalleMateria> findAllByAlumnosId(int id);
     int deleteById(int id);
   
     List<DetalleMateria> findAll();

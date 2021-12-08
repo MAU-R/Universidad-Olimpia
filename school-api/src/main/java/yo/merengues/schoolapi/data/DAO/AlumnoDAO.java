@@ -56,4 +56,17 @@ public class AlumnoDAO extends jdbcConfig implements AlumnoRepository {
    public int deleteAll(){
         return jdbcTemplate.update("Delete from alumnos");
     }
+
+    @Override
+    public Alumno login(Alumno alumno){
+        System.out.println(alumno.getNombre());
+        try{
+            Alumno alumnol =  jdbcTemplate.queryForObject(
+                "select * from alumnos where matricula=? and contraseña=? ", BeanPropertyRowMapper.newInstance(Alumno.class), alumno.getMatricula(), alumno.getContraseña());
+            return alumnol;
+            }catch(IncorrectResultSizeDataAccessException e){
+            System.out.println(e);
+                return null;
+        }
+    }
 }

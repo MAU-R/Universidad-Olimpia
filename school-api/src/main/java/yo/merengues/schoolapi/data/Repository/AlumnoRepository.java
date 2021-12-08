@@ -17,4 +17,6 @@ public interface AlumnoRepository {
     List<Alumno> findAll();
   
     int deleteAll();
+
+    Alumno login(Alumno alumno);
 }

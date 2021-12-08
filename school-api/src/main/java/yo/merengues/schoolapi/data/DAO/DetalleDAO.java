@@ -47,13 +47,24 @@ public class DetalleDAO extends jdbcConfig implements DetalleRepository{
     public DetalleMateria findById(String id){
     try{
         DetalleMateria detalle = jdbcTemplate.queryForObject(
-            "SELECT * FROM  detalle_materia where id =?", BeanPropertyRowMapper.newInstance(DetalleMateria.class),id);
+            "SELECT * FROM  detalle_materia where matricula =?", BeanPropertyRowMapper.newInstance(DetalleMateria.class),id);
         return detalle;
         }catch(IncorrectResultSizeDataAccessException e){
         System.out.println(e);
             return null;
     }
    }
+   @Override
+   public DetalleMateria findByIdAndAlumnoId(String id, int a){
+   try{
+       DetalleMateria detalle = jdbcTemplate.queryForObject(
+           "SELECT * FROM  detalle_materia where matricula =? and id_alumno=?", BeanPropertyRowMapper.newInstance(DetalleMateria.class),id,a);
+       return detalle;
+       }catch(IncorrectResultSizeDataAccessException e){
+       System.out.println(e);
+           return null;
+   }
+  }
    @Override
    public Materia findByAlumnoId(int id){
     try{
@@ -88,10 +99,32 @@ public class DetalleDAO extends jdbcConfig implements DetalleRepository{
         }
     }
     @Override
-    public List<Alumno> findAlumnos(int id){
+    public  List<DetalleMateria> findAllByMaestroId(int id){
+        try{
+            List<DetalleMateria> detalle = jdbcTemplate.query(
+                "SELECT * FROM  detalle_materia where id_maestro =?", BeanPropertyRowMapper.newInstance(DetalleMateria.class),id);
+            return detalle;
+            }catch(IncorrectResultSizeDataAccessException e){
+            System.out.println(e);
+                return null;
+        }
+    }
+    @Override
+    public  List<DetalleMateria> findAllByAlumnosId(int id){
+        try{
+            List<DetalleMateria> detalle = jdbcTemplate.query(
+                "SELECT * FROM  detalle_materia where id_alumno =?", BeanPropertyRowMapper.newInstance(DetalleMateria.class),id);
+            return detalle;
+            }catch(IncorrectResultSizeDataAccessException e){
+            System.out.println(e);
+                return null;
+        }
+    }
+    @Override
+    public List<Alumno> findAlumnos(String id){
         return jdbcTemplate.query(
-            "select u.nombre, u.apellido_paterno,u.apellido_materno,u.foto,u.correo,u.contraseña,u.matricula from detalle_materia inner join alumnos u on detalle_materia.id_alumno= u.matricula where detalle_materia.matricula=?",
-             BeanPropertyRowMapper.newInstance(Alumno.class));
+            "select u.nombre, u.apellido_paterno,u.apellido_materno,u.foto,u.correo,u.contraseña,u.matricula from detalle_materia inner join alumnos u on detalle_materia.id_alumno= u.matricula where detalle_materia.matricula=?;",
+             BeanPropertyRowMapper.newInstance(Alumno.class),id);
     }
     @Override
    public int deleteById(int id){
