@@ -1,5 +1,6 @@
 package com.example.alumnosapp.framework.api
 
+import com.example.alumnosapp.core.exception.Failure
 import com.example.alumnosapp.core.functional.Either
 import com.example.alumnosapp.core.plataform.NetworkHandler
 import retrofit2.Call

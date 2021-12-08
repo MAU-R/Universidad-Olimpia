@@ -6,6 +6,7 @@ import android.widget.Toast
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.example.alumnosapp.core.exception.Failure
 
 
 abstract class BaseFragment(@LayoutRes layoutId: Int) : Fragment(layoutId), OnFailure {

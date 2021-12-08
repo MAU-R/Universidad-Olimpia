@@ -1,5 +1,5 @@
 package com.example.alumnosapp.data.dao
-
+/*
 import androidx.room.*
 import androidx.room.OnConflictStrategy.IGNORE
 import com.example.alumnosapp.domain.model.Alumno
@@ -15,4 +15,4 @@ interface AlumnoDao {
 
     @Update
     fun updateAlumno(alumno: Alumno): Int
-}
+}*/
