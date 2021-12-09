@@ -22,11 +22,9 @@ class MaestroRepositoryImpl @Inject constructor(
     override fun getMaestroById(id: Int): Either<Failure, Maestro> {
         val result = makeRequest(
             networkHandler, maestroApi.getMaestroById(id),{
-                it.maestros?.get(0)?: Maestro()
+                it
             },
-            MaestrosResponse(
-                emptyList()
-            )
+            Maestro()
         )
         return result
     }

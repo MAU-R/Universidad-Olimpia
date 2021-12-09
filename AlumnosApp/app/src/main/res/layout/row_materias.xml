@@ -22,6 +22,7 @@
 
             <ImageView
                 android:id="@+id/imgSubject"
+
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_margin="10dp"

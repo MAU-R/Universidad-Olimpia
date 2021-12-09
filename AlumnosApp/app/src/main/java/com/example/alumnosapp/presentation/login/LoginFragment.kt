@@ -48,12 +48,12 @@ class LoginFragment:  BaseFragment(R.layout.login_fragment) {
     override fun setBinding(view: View) {
         binding = LoginFragmentBinding.bind(view)
 
-     //   setHasOptionsMenu(true)
+        //   setHasOptionsMenu(true)
 
         binding.lifecycleOwner = this
 
         binding.apply {
-        lifecycleOwner= this@LoginFragment
+            lifecycleOwner= this@LoginFragment
             btnDoLogin.setOnClickListener { loginViewModel.doLogin(edtMatricula.text.toString().toInt(), edtPassword.text.toString()) }
         }
 

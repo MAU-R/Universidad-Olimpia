@@ -9,5 +9,5 @@ import com.example.alumnosapp.domain.model.Alumno
 interface AlumnoRepository {
     fun login(alumno: Alumno):Either<Failure, Alumno>
     fun updateProfile(alumno: Alumno):Either<Failure,Alumno>
-
+    fun getUser(usuario: Alumno):Either<Failure, Alumno>
 }

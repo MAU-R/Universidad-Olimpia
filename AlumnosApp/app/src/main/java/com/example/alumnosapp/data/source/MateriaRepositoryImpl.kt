@@ -23,23 +23,21 @@ class MateriaRepositoryImpl @Inject constructor(
     private val networkHandler: NetworkHandler
 ) :
     MateriaRepository, ApiRequest {
-    override fun getMateriaById(id: Int): Either<Failure, Materia> {
+
+    override fun getMateriasByName(name: String) = makeRequest(
+        networkHandler, materiaApi.getMateriasByName(name), { it }, MateriasResponse(
+            emptyList()
+        )
+    )
+
+    override fun getMateriaByID(ID: Int): Either<Failure, Materia> {
         val result = makeRequest(
-            networkHandler, materiaApi.getMateriaById(id),{
-                it.materias?.get(0)?: Materia()
-            },
+            networkHandler,materiaApi.getMateriaByID(ID),
+            {it.materias?.get(0)?:Materia()},
             MateriasResponse(
                 emptyList()
             )
         )
         return result
     }
-
-
-    //Esta es solo para el use case
-    override fun getMateriasByName(name: String) = makeRequest(
-        networkHandler, materiaApi.getMateriasByName(name), { it }, MateriasResponse(
-            emptyList()
-        )
-    )
 }

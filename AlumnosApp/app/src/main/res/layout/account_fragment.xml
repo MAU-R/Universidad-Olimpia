@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
@@ -13,10 +12,12 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".presentation.account.AccountFragment">
+        tools:context=".presentation.account.AccountFragment"
+        android:layout_marginBottom="55dp">
 
         <ImageView
             android:id="@+id/imgUser"
+            loadFromUrl="@{user.foto}"
             android:layout_width="180dp"
             android:layout_height="180dp"
             android:layout_margin="16dp"
@@ -41,7 +42,7 @@
             tools:text="UserName" />
 
         <TextView
-            android:id="@+id/txvLikes"
+            android:id="@+id/txvCorreo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"

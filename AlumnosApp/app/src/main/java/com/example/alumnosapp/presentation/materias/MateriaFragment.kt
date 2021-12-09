@@ -35,7 +35,7 @@ class MateriaFragment : BaseFragment(R.layout.materia_fragment) {
 
     override fun onResume() {
         super.onResume()
-        materiasViewModel.doGetMateriasByName("")
+        materiasViewModel.doGetAllMaterias()
     }
 
     override fun onViewStateChanged(state: BaseViewState?) {
@@ -62,6 +62,7 @@ class MateriaFragment : BaseFragment(R.layout.materia_fragment) {
             isVisible = materias.isNotEmpty()
             adapter = this@MateriaFragment.adapter
         }
+
     }
 
     override fun setBinding(view: View) {

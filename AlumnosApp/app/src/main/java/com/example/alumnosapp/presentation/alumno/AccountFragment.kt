@@ -15,15 +15,22 @@ import com.example.alumnosapp.core.presentation.BaseViewState
 import com.example.alumnosapp.databinding.AccountFragmentBinding
 import com.example.alumnosapp.presentation.login.LoginFragmentDirections
 import com.example.alumnosapp.presentation.login.LoginViewState
+import dagger.hilt.android.AndroidEntryPoint
+import dagger.hilt.android.WithFragmentBindings
+import kotlinx.coroutines.DelicateCoroutinesApi
 
-class CuentaFragment :  BaseFragment(R.layout.account_fragment) {
+@DelicateCoroutinesApi
+@AndroidEntryPoint
+@WithFragmentBindings
+class AccountFragment :  BaseFragment(R.layout.account_fragment) {
 
     private lateinit var binding: AccountFragmentBinding
-    private val loginViewModel by viewModels<CuentaViewModel>()
+    private val accountViewModel by viewModels<AccountViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        loginViewModel.apply {
+
+        accountViewModel.apply {
             observe(state, ::onViewStateChanged)
             failure(failure, ::handleFailure)
         }
@@ -31,14 +38,17 @@ class CuentaFragment :  BaseFragment(R.layout.account_fragment) {
 
     override fun onResume() {
         super.onResume()
-        loginViewModel
+        accountViewModel.getLocalUser()
     }
 
     override fun onViewStateChanged(state: BaseViewState?) {
         super.onViewStateChanged(state)
         when (state) {
-            is LoginViewState.LoggedUser->
-                navController.navigate(LoginFragmentDirections.actionLoginFragmentToAccountFragment())
+
+            is AccountViewState.LoggedUser->
+                binding.user= state.alumno;
+            is AccountViewState.UserNotFound->
+                navController.navigate(AccountFragmentDirections.actionAccountFragmentToLoginFragment())
         }
     }
 
@@ -52,10 +62,13 @@ class CuentaFragment :  BaseFragment(R.layout.account_fragment) {
         binding.lifecycleOwner = this
 
         binding.apply {
-            lifecycleOwner= this@CuentaFragment
-
+            lifecycleOwner= this@AccountFragment
+            btnLogout.setOnClickListener {
+                accountViewModel.logout()
+            }
         }
 
-        baseActivity.setBottomNavVisibility(View.VISIBLE)
+
     }
 }
+

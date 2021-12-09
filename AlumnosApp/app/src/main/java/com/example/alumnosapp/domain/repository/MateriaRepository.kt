@@ -9,10 +9,8 @@ import com.example.alumnosapp.domain.model.Materia
 
 interface MateriaRepository {
 
-    fun getMateriaById(id:Int): Either<Failure, Materia>
-
-
-    //Esta es solo para el use case
     fun getMateriasByName(name: String): Either<Failure, MateriasResponse>
+    fun getMateriaByID(ID: Int):Either<Failure, Materia>
+
 
 }
