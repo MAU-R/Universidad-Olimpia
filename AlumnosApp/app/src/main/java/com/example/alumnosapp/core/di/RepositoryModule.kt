@@ -2,8 +2,11 @@ package com.example.alumnosapp.core.di
 
 import com.example.alumnosapp.core.plataform.NetworkHandler
 import com.example.alumnosapp.data.api.AlumnoApi
+import com.example.alumnosapp.data.api.MateriaApi
 import com.example.alumnosapp.data.source.AlumnoRepositoryImpl
+import com.example.alumnosapp.data.source.MateriaRepositoryImpl
 import com.example.alumnosapp.domain.repository.AlumnoRepository
+import com.example.alumnosapp.domain.repository.MateriaRepository
 import com.example.alumnosapp.framework.api.ApiProvider
 import dagger.Module
 import dagger.Provides
@@ -22,4 +25,12 @@ object RepositoryModule {
         networkHandler: NetworkHandler
     ): AlumnoRepository =
         AlumnoRepositoryImpl(apiProvider.getEndpoint(AlumnoApi::class.java), networkHandler)
+
+    @Provides
+    @Singleton
+    fun provideMateriaRepository(
+        apiProvider: ApiProvider,
+        networkHandler: NetworkHandler
+    ): MateriaRepository =
+        MateriaRepositoryImpl(apiProvider.getEndpoint(MateriaApi::class.java), networkHandler)
 }

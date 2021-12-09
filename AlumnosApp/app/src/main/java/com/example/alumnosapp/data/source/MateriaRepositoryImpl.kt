@@ -19,7 +19,7 @@ class MateriaRepositoryImpl @Inject constructor(
     MateriaRepository, ApiRequest {
 
     override fun getMateriasByName(name: String) = makeRequest(
-        networkHandler, materiaApi.getMateriasByName(name), { it }, MateriasResponse(
+        networkHandler, materiaApi.getMateriaByName(name), { it }, MateriasResponse(
             emptyList()
         )
     )

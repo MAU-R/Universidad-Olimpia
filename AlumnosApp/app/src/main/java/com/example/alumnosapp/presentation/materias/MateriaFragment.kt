@@ -2,12 +2,8 @@ package com.example.alumnosapp.presentation.materias
 
 import android.os.Bundle
 import android.view.View
-import androidx.appcompat.widget.SearchView
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.amalip.cocktailapp.core.utils.LayoutType
 import com.example.alumnosapp.R
 import com.example.alumnosapp.core.extension.failure
 import com.example.alumnosapp.core.extension.observe
@@ -26,20 +22,16 @@ class MateriaFragment : BaseFragment(R.layout.materia_fragment) {
 
     private lateinit var binding: MateriaFragmentBinding
 
-    private val adapter: MateriaAdapter by lazy { MateriaAdapter() }
-    private val materiasViewModel by viewModels<MateriaViewModel>()
+    private lateinit var adapter: MateriaAdapter
+    private val materiaViewModel by viewModels<MateriaViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        materiasViewModel.apply {
+        materiaViewModel.apply {
             observe(state, ::onViewStateChanged)
             failure(failure, ::handleFailure)
+            materiaViewModel.doGetMateriasByName("")
         }
-    }
-
-    override fun onResume() {
-        super.onResume()
-        materiasViewModel.doGetMateriasByName("")
     }
 
     override fun onViewStateChanged(state: BaseViewState?) {
@@ -49,44 +41,20 @@ class MateriaFragment : BaseFragment(R.layout.materia_fragment) {
         }
     }
 
-    private fun setUpAdapter(materias: List<Materia>) {
-        binding.emptyView.isVisible = materias.isEmpty()
+    private fun setUpAdapter(cocktails: List<Materia>) {
+        adapter = MateriaAdapter()
 
-        adapter.addData(materias)
-
-        adapter.setListener {
-            navController.navigate(
-                MateriaFragmentDirections.actionMateriaFragmentToMateriaDetailFragment(
-                    //it.name
-                )
-            )
-        }
+        adapter.addData(cocktails)
 
         binding.rcMaterias.apply {
-            isVisible = materias.isNotEmpty()
             adapter = this@MateriaFragment.adapter
         }
-
     }
 
     override fun setBinding(view: View) {
         binding = MateriaFragmentBinding.bind(view)
 
-        setHasOptionsMenu(true)
-
         binding.lifecycleOwner = this
 
-        binding.apply {
-            swpRefresh.apply {
-                setOnRefreshListener {
-
-                    isRefreshing = false
-                }
-            }
-        }
-
-        baseActivity.setBottomNavVisibility(View.VISIBLE)
     }
-
-
 }

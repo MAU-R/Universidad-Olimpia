@@ -12,6 +12,6 @@ class Materia(
     @Json(name="matricula") val idMateria: Int = 0,
     @Json(name = "nombre") val name: String = "",
     @Json(name = "foto") val foto: String = "",
-    @Json(name = "descripcion") val afgh: String = "",
+    @Json(name = "descripcion") val descripcion: String = "",
 ) {
 }

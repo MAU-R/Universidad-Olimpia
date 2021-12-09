@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.View
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
-import com.example.alumnosapp.presentation.materias.MateriaFragmentDirections
 import com.example.profesoresapp.R
 import com.example.profesoresapp.core.extension.failure
 import com.example.profesoresapp.core.extension.observe
