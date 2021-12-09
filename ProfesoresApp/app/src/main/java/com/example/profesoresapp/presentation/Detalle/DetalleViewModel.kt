@@ -1,9 +1,8 @@
 package com.example.profesoresapp.presentation.Detalle
 
-import androidx.lifecycle.ViewModel
+
 import com.example.profesoresapp.core.presentation.BaseViewModel
 import com.example.profesoresapp.domain.usecase.GetAlumnosPorMateria
-import com.example.profesoresapp.presentation.Detalle.MateriaDetailViewState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.DelicateCoroutinesApi
 import javax.inject.Inject

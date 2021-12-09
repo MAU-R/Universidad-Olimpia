@@ -38,7 +38,6 @@ class MateriaAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
         fun bind(data: Materia, listener: (materia: Materia) -> Unit) {
             binding.item = data
-
             binding.root.setOnClickListener { listener(data) }
         }
     }

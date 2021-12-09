@@ -2,6 +2,7 @@ package com.example.profesoresapp.presentation.Detalle
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.example.profesoresapp.R
@@ -10,10 +11,8 @@ import com.example.profesoresapp.core.extension.observe
 import com.example.profesoresapp.core.presentation.BaseFragment
 import com.example.profesoresapp.core.presentation.BaseViewState
 import com.example.profesoresapp.databinding.DetalleFragmentBinding
-import com.example.profesoresapp.databinding.MateriadetailFragmentBinding
 import com.example.profesoresapp.domain.model.Alumno
-import com.example.profesoresapp.presentation.detalleMateria.MateriaDetailAdapter
-import com.example.profesoresapp.presentation.detalleMateria.MateriaDetailViewState
+
 import dagger.hilt.android.AndroidEntryPoint
 import dagger.hilt.android.WithFragmentBindings
 import kotlinx.coroutines.DelicateCoroutinesApi
@@ -58,7 +57,7 @@ class DetalleFragment :  BaseFragment(R.layout.detalle_fragment) {
         }
 
         binding.rcAlumnos.apply {
-            // isVisible = alumnos.isNotEmpty()
+             isVisible=alumnos.isNotEmpty()
             adapter = this@DetalleFragment.adapter
         }
 
