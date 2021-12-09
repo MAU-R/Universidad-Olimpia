@@ -36,8 +36,7 @@
             android:layout_margin="16dp"
             android:hint="@string/matricula"
             android:inputType="text"
-            android:text="@={}"
-            android:textColor="@color/black"
+            android:text="@{vm.idAlumno}"
             app:layout_constraintBottom_toTopOf="@id/edtPassword"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -50,8 +49,7 @@
             android:layout_margin="16dp"
             android:hint="@string/password"
             android:inputType="textPassword"
-            android:text="@={}"
-            android:textColor="@color/black"
+            android:text="@{vm.Password}"
             app:layout_constraintBottom_toTopOf="@id/btnDoLogin"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -82,5 +80,4 @@
             app:layout_constraintGuide_begin="466dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </layout>

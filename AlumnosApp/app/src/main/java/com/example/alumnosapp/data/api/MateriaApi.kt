@@ -8,7 +8,7 @@ import retrofit2.http.Query
 
 interface MateriaApi {
 
-    @GET("")
-    fun getMateriasByName(@Query("s") name: String): Call<MateriasResponse>
+    @GET("get/alumnos")
+    fun getMateriaByName(@Query("s") name: String): Call<MateriasResponse>
 
 }

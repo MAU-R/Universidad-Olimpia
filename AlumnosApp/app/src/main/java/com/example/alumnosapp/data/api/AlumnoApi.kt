@@ -7,7 +7,7 @@ import retrofit2.http.Query
 
 interface AlumnoApi {
 
-    @GET("")
+    @GET("get/alumnos")
     fun getAlumnosByName(@Query("s") name: String): Call<AlumnosResponse>
 
 }

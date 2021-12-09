@@ -6,44 +6,52 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.amalip.cocktailapp.core.utils.LayoutType
+import com.example.alumnosapp.core.utils.LayoutType
 import com.example.alumnosapp.databinding.RowMateriasBinding
+import com.example.alumnosapp.domain.model.Alumno
 import com.example.alumnosapp.domain.model.Materia
-import dagger.hilt.android.AndroidEntryPoint
-import dagger.hilt.android.WithFragmentBindings
-import kotlinx.coroutines.DelicateCoroutinesApi
 
 @SuppressLint("NotifyDataSetChanged")
 class MateriaAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private var list: MutableList<Materia> = mutableListOf()
-    private lateinit var listener: (materia: Materia) -> Unit
+    var layoutType = LayoutType.LINEAR
 
     fun addData(list: List<Materia>) {
         this.list = list.toMutableList()
+
         notifyDataSetChanged()
     }
 
-    fun setListener(listener: (materia: Materia) -> Unit) {
-        this.listener = listener
+    fun changeView(layoutType: LayoutType) {
+        this.layoutType = layoutType
+        notifyDataSetChanged()
     }
+
+    override fun getItemViewType(position: Int) = layoutType.ordinal
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ViewHolderItem(
         RowMateriasBinding.inflate(LayoutInflater.from(parent.context), parent, false)
     )
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) =
-        (holder as ViewHolderItem).bind(list[position], listener)
+        (holder as BaseViewHolder).bind(
+            list[position]
+        )
 
     override fun getItemCount() = list.size
+}
 
-    class ViewHolderItem(private val binding: RowMateriasBinding) :
-        RecyclerView.ViewHolder(binding.root) {
+class ViewHolderItem(private val binding: RowMateriasBinding) :
+    BaseViewHolder(binding.root) {
 
-        fun bind(data: Materia, listener: (materia: Materia) -> Unit) {
-            binding.item = data
-
-            binding.root.setOnClickListener { listener(data) }
-        }
+    override fun bind(data: Materia) {
+        binding.item = data
     }
+}
+
+abstract class BaseViewHolder(private val root: View) : RecyclerView.ViewHolder(root) {
+
+    abstract fun bind(data: Materia)
+
 }
