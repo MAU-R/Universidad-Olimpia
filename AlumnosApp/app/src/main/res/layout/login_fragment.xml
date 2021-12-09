@@ -36,7 +36,7 @@
             android:layout_margin="16dp"
             android:hint="@string/matricula"
             android:inputType="text"
-            android:text="@{vm.idAlumno}"
+            android:text="@{vm.name}"
             app:layout_constraintBottom_toTopOf="@id/edtPassword"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

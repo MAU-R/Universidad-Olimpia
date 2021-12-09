@@ -22,16 +22,20 @@ class MateriaFragment : BaseFragment(R.layout.materia_fragment) {
 
     private lateinit var binding: MateriaFragmentBinding
 
-    private lateinit var adapter: MateriaAdapter
-    private val materiaViewModel by viewModels<MateriaViewModel>()
+    private val adapter: MateriaAdapter by lazy { MateriaAdapter() }
+    private val materiasViewModel by viewModels<MateriaViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        materiaViewModel.apply {
+        materiasViewModel.apply {
             observe(state, ::onViewStateChanged)
             failure(failure, ::handleFailure)
-            materiaViewModel.doGetMateriasByName("")
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        materiasViewModel.doGetMateriasByName("")
     }
 
     override fun onViewStateChanged(state: BaseViewState?) {
@@ -41,12 +45,21 @@ class MateriaFragment : BaseFragment(R.layout.materia_fragment) {
         }
     }
 
-    private fun setUpAdapter(cocktails: List<Materia>) {
-        adapter = MateriaAdapter()
+    private fun setUpAdapter(materias: List<Materia>) {
+        binding.emptyView.isVisible = materias.isEmpty()
 
-        adapter.addData(cocktails)
+        adapter.addData(materias)
+
+        adapter.setListener {
+            navController.navigate(
+                MateriaFragmentDirections.actionMateriaFragmentToMateriaDetailFragment(
+                    //it.name
+                )
+            )
+        }
 
         binding.rcMaterias.apply {
+            isVisible = materias.isNotEmpty()
             adapter = this@MateriaFragment.adapter
         }
     }
@@ -54,7 +67,21 @@ class MateriaFragment : BaseFragment(R.layout.materia_fragment) {
     override fun setBinding(view: View) {
         binding = MateriaFragmentBinding.bind(view)
 
+        setHasOptionsMenu(true)
+
         binding.lifecycleOwner = this
 
+        binding.apply {
+            swpRefresh.apply {
+                setOnRefreshListener {
+
+                    isRefreshing = false
+                }
+            }
+        }
+
+        baseActivity.setBottomNavVisibility(View.VISIBLE)
     }
+
+
 }

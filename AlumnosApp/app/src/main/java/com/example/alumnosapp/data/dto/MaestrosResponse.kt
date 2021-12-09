@@ -6,4 +6,4 @@ import com.example.alumnosapp.domain.model.Materia
 import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
-data class MateriasResponse(val materias: List<Materia>? = listOf())
+data class MaestrosResponse(val maestros: List<Maestro>? = listOf())
