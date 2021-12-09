@@ -7,7 +7,7 @@ import coil.transform.CircleCropTransformation
 import com.example.alumnosapp.R
 
 @BindingAdapter("loadFromUrl")
-fun ImageView.loadFromURL(url: String) = this.load(url) {
+fun ImageView.loadFromURL(url: String?) = this.load(url) {
     crossfade(true)
     placeholder(R.drawable.ic_school)
     transformations(CircleCropTransformation())

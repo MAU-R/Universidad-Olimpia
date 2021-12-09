@@ -35,4 +35,8 @@ class AlumnoRepositoryImpl @Inject constructor(
         )
         return result
     }
+
+    override fun getUser(usuario: Alumno): Either<Failure, Alumno> {
+        TODO("Not yet implemented")
+    }
 }

@@ -9,7 +9,7 @@ import kotlinx.parcelize.Parcelize
 
 @JsonClass(generateAdapter = true)
 class Maestro(
-    @Json (name="matricula")  val idMaestro: Int = 0,
+    @Json(name="matricula")  val idMaestro: Int = 0,
     @Json(name = "nombre") val name: String = "",
     @Json(name = "foto") val foto: String = "",
     @Json(name = "apellido_paterno") val apellidopa: String = "",

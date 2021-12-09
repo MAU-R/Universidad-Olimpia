@@ -13,6 +13,6 @@ interface AlumnoApi {
     @POST("login/alumno")
     fun login(@Body alumno : Alumno) : Call<Alumno>
 
-    @POST("update/alumno")
+    @POST("edit/alumno")
     fun updateAlumno(@Body alumno: Alumno): Call<AlumnosResponse>
 }

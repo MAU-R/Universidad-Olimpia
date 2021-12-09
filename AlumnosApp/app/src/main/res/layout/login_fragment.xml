@@ -8,19 +8,19 @@
         <variable
             name="vm"
             type="com.example.alumnosapp.domain.model.Alumno"/>
-            <!--type="com.example.alumnosapp.presentation.login.LoginViewModel"-->
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".presentation.register.RegisterFragment">
+        tools:context=".presentation.login.LoginFragment">
 
         <TextView
             android:id="@+id/txvTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/login"
+            android:text="Login"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="20sp"
@@ -34,9 +34,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:hint="@string/matricula"
+            android:hint="Matricula"
             android:inputType="text"
             android:text="@{vm.name}"
+            android:textColor="@color/black"
             app:layout_constraintBottom_toTopOf="@id/edtPassword"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -47,9 +48,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:hint="@string/password"
+            android:hint="Contraseña"
             android:inputType="textPassword"
-            android:text="@{vm.Password}"
+            android:text="@{vm.password}"
+            android:textColor="@color/black"
             app:layout_constraintBottom_toTopOf="@id/btnDoLogin"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -59,7 +61,7 @@
             android:id="@+id/btnDoLogin"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/log_in"
+            android:text="Log_In"
             app:layout_constraintBottom_toBottomOf="@id/guideline1"
             app:layout_constraintEnd_toEndOf="@id/edtPassword"
             app:layout_constraintStart_toStartOf="@id/edtPassword"
@@ -80,4 +82,5 @@
             app:layout_constraintGuide_begin="466dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>
