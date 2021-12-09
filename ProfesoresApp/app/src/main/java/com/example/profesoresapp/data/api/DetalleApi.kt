@@ -3,11 +3,10 @@ package com.example.profesoresapp.data.api
 import com.example.profesoresapp.data.dto.AlumnosResponse
 import com.example.profesoresapp.data.dto.DetalleResponse
 import com.example.profesoresapp.data.dto.MateriasResponse
+import com.example.profesoresapp.domain.model.Alumno
 import com.example.profesoresapp.domain.model.Materia
 import retrofit2.Call
-import retrofit2.http.GET
-import retrofit2.http.Path
-import retrofit2.http.Query
+import retrofit2.http.*
 
 interface DetalleApi {
     /*
@@ -18,7 +17,7 @@ interface DetalleApi {
     @GET("get/materias/maestro/{id}")
     fun getMateriasPorProfesor(@Path("id")id:Int): Call<List<Materia>>
     @GET("get/alumnos/{id}")
-    fun getAlumnosPorMateria(@Path("id")id:Int): Call<AlumnosResponse>
+    fun getAlumnosPorMateria(@Path("id") id:String): Call<List<Alumno>>
     @GET("get/detalle/maestro/{id}/{ida}")
     fun getDetalleMateria(@Path("id") id: Int, @Path("ida")ida:Int): Call<DetalleResponse>
 }

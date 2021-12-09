@@ -11,18 +11,9 @@
         android:label="materiasFragment"
         tools:layout="@layout/materia_fragment">
         <action
-            android:id="@+id/action_materiaFragment_to_materiaDetailFragment"
-            app:destination="@id/materiaDetailFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right" />
+            android:id="@+id/action_materiaFragment_to_detalleFragment"
+            app:destination="@id/detalleFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/materiaDetailFragment"
-        android:name="com.example.profesoresapp.presentation.materias.MateriaFragment"
-        android:label="materiasDetailFragment"
-        tools:layout="@layout/materiadetail_fragment"/>
     <fragment
         android:id="@+id/cuentaFragment"
         android:name="com.example.profesoresapp.presentation.profesor.CuentaFragment"
@@ -41,6 +32,13 @@
         <action
             android:id="@+id/action_loginFragment2_to_cuentaFragment"
             app:destination="@id/cuentaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detalleFragment"
+        android:name="com.example.profesoresapp.presentation.Detalle.DetalleFragment"
+        android:label="DetalleFragment" >
+        <argument android:name="clase"
+            app:argType="com.example.profesoresapp.domain.model.Materia"/>
     </fragment>
 
 </navigation>

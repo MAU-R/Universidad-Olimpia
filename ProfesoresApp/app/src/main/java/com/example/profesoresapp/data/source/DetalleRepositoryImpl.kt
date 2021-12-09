@@ -30,10 +30,10 @@ class DetalleRepositoryImpl @Inject constructor(
         return result
     }
 
-    override fun getAlumnosPorMateria(id: Int): Either<Failure, AlumnosResponse> {
+    override fun getAlumnosPorMateria(id: String): Either<Failure, List<Alumno>> {
        val result = makeRequest(
-           networkHandler, detalleApi.getAlumnosPorMateria(id),{it}, AlumnosResponse(emptyList())
-       )
+           networkHandler, detalleApi.getAlumnosPorMateria(id),{it}, listOf())
+
         return result
     }
 

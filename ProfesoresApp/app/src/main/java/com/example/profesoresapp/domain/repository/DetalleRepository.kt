@@ -10,6 +10,6 @@ import com.example.profesoresapp.domain.model.Materia
 
 interface DetalleRepository {
     fun getMateriasPorProfesor(Id: Int):Either<Failure, List<Materia>>
-    fun getAlumnosPorMateria(id:Int):Either<Failure,AlumnosResponse>
+    fun getAlumnosPorMateria(id:String):Either<Failure,List<Alumno>>
     fun getDetalleMateria(id:Int, ida:Int):Either<Failure, DetallesMateria>
 }
