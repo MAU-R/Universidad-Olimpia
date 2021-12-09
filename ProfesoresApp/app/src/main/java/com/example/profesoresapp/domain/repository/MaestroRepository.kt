@@ -9,5 +9,5 @@ import com.example.profesoresapp.domain.model.Profesor
 interface MaestroRepository {
 fun login(profesor: Profesor):Either<Failure, Profesor>
 fun updateProfile(profesor: Profesor):Either<Failure,Profesor>
-
+fun getUser(usuario: Profesor):Either<Failure, Profesor>
 }

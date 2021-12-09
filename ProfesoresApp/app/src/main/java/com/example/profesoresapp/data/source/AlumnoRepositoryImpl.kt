@@ -20,11 +20,9 @@ class AlumnoRepositoryImpl @Inject constructor(
     override fun getAlumnoById(id: Int): Either<Failure, Alumno> {
         val result = makeRequest(
             networkHandler, alumnoApi.getAlumnoById(id),{
-                it.alumnos?.get(0)?: Alumno()
+                it
             },
-            AlumnosResponse(
-                emptyList()
-            )
+            Alumno()
         )
         return result
     }

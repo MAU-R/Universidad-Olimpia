@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.navArgs
 import com.example.profesoresapp.R
 import com.example.profesoresapp.core.extension.failure
 import com.example.profesoresapp.core.extension.observe
@@ -17,15 +18,22 @@ import com.example.profesoresapp.databinding.LoginFragmentBinding
 import com.example.profesoresapp.presentation.login.LoginFragmentDirections
 import com.example.profesoresapp.presentation.login.LoginViewModel
 import com.example.profesoresapp.presentation.login.LoginViewState
+import dagger.hilt.android.AndroidEntryPoint
+import dagger.hilt.android.WithFragmentBindings
+import kotlinx.coroutines.DelicateCoroutinesApi
 
+@DelicateCoroutinesApi
+@AndroidEntryPoint
+@WithFragmentBindings
 class CuentaFragment :  BaseFragment(R.layout.cuenta_fragment) {
 
     private lateinit var binding: CuentaFragmentBinding
-    private val loginViewModel by viewModels<CuentaViewModel>()
+    private val cuentaViewModel by viewModels<CuentaViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        loginViewModel.apply {
+
+        cuentaViewModel.apply {
             observe(state, ::onViewStateChanged)
             failure(failure, ::handleFailure)
         }
@@ -33,14 +41,17 @@ class CuentaFragment :  BaseFragment(R.layout.cuenta_fragment) {
 
     override fun onResume() {
         super.onResume()
-        loginViewModel
+        cuentaViewModel.getLocalUser()
     }
 
     override fun onViewStateChanged(state: BaseViewState?) {
         super.onViewStateChanged(state)
         when (state) {
-            is LoginViewState.LoggedUser->
-                navController.navigate(LoginFragmentDirections.actionLoginFragment2ToCuentaFragment())
+
+            is CuentaViewState.LoggedUser->
+                binding.user= state.profesor;
+            is CuentaViewState.UserNotFound->
+                navController.navigate(CuentaFragmentDirections.actionCuentaFragmentToLoginFragment2())
         }
     }
 
@@ -55,9 +66,11 @@ class CuentaFragment :  BaseFragment(R.layout.cuenta_fragment) {
 
         binding.apply {
             lifecycleOwner= this@CuentaFragment
-
+            btnLogout.setOnClickListener {
+                cuentaViewModel.logout()
+            }
         }
 
-        baseActivity.setBottomNavVisibility(View.VISIBLE)
+
     }
 }

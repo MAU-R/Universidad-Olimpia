@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_graph"
-    app:startDestination="@id/materiaFragment">
+    app:startDestination="@id/cuentaFragment">
 
     <fragment
         android:id="@+id/materiaFragment"
@@ -29,6 +29,9 @@
         android:label="cuenta_fragment"
         tools:layout="@layout/cuenta_fragment" >
 
+        <action
+            android:id="@+id/action_cuentaFragment_to_loginFragment2"
+            app:destination="@id/loginFragment2" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment2"

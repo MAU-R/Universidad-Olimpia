@@ -132,8 +132,14 @@ public class SchoolController {
         public ResponseEntity<List<Materia>> getMateriasMaestro(@PathVariable int id){
             List<DetalleMateria> detmaterias= detalleMateria.findAllByMaestroId(id);
             List<Materia> materias = new ArrayList<>();
+            List<Integer> ids= new ArrayList<>();
             for (DetalleMateria detalleMateria : detmaterias) {
+                if(ids.contains(detalleMateria.getId_materia())||detalleMateria.isConcluido()==true){
+
+                }else{
                 materias.add(materiaRepository.findById(detalleMateria.getId_materia()));
+                ids.add(detalleMateria.getId_materia());
+                }
             }
             return new ResponseEntity<>(materias,HttpStatus.OK);
         }

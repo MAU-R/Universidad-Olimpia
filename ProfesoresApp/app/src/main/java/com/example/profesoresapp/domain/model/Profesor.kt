@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 import kotlinx.parcelize.Parcelize
-
+@Parcelize
 @JsonClass(generateAdapter = true)
 class Profesor(
     @Json (name="matricula")  val idProfesor: Int? = 0,
@@ -16,5 +16,5 @@ class Profesor(
     @Json(name = "apellido_materno") val apellidoma: String? = "",
     @Json(name = "correo") val correo: String? = "",
     @Json(name="contraseña") val contrasena: String? =""
-) {
+):Parcelable {
 }

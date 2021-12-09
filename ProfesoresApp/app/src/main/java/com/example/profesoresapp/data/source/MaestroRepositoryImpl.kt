@@ -37,4 +37,8 @@ class MaestroRepositoryImpl @Inject constructor(
         )
         return result
     }
+
+    override fun getUser(usuario: Profesor): Either<Failure, Profesor> {
+        TODO("Not yet implemented")
+    }
 }

@@ -21,11 +21,11 @@ class DetalleRepositoryImpl @Inject constructor(
     private val networkHandler: NetworkHandler
 ) :
     DetalleRepository, ApiRequest {
-    override fun getMateriasPorProfesor(Id: Int): Either<Failure, MateriasResponse> {
+    override fun getMateriasPorProfesor(Id: Int): Either<Failure, List<Materia>> {
        val result = makeRequest(
-           networkHandler, detalleApi.getMateriasPorProfesor(Id),{it}, MateriasResponse(
-               emptyList()
-           )
+           networkHandler, detalleApi.getMateriasPorProfesor(Id),
+           {it},
+           emptyList<Materia>()
        )
         return result
     }
