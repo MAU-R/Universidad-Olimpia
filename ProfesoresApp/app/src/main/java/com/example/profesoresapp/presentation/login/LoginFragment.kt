@@ -44,7 +44,8 @@ class LoginFragment:  BaseFragment(R.layout.login_fragment) {
     override fun onViewStateChanged(state: BaseViewState?) {
         super.onViewStateChanged(state)
         when (state) {
-
+            is LoginViewState.LoggedUser->
+                navController.navigate(LoginFragmentDirections.actionLoginFragment2ToCuentaFragment())
         }
     }
 
@@ -58,7 +59,8 @@ class LoginFragment:  BaseFragment(R.layout.login_fragment) {
         binding.lifecycleOwner = this
 
         binding.apply {
-
+        lifecycleOwner= this@LoginFragment
+            btnDoLogin.setOnClickListener { loginViewModel.doLogin(edtMatricula.text.toString().toInt(), edtPassword.text.toString()) }
         }
 
         baseActivity.setBottomNavVisibility(View.VISIBLE)

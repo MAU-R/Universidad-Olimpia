@@ -27,7 +27,9 @@
         android:id="@+id/cuentaFragment"
         android:name="com.example.profesoresapp.presentation.profesor.CuentaFragment"
         android:label="cuenta_fragment"
-        tools:layout="@layout/cuenta_fragment" />
+        tools:layout="@layout/cuenta_fragment" >
+
+    </fragment>
     <fragment
         android:id="@+id/loginFragment2"
         android:name="com.example.profesoresapp.presentation.login.LoginFragment"

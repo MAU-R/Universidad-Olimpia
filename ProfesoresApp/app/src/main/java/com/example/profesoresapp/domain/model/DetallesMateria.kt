@@ -18,4 +18,5 @@ class DetallesMateria(
     @Json(name="concluido") var concluido:Boolean=false
 ) {
 
+
 }

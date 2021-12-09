@@ -54,4 +54,16 @@ public class MaestroDAO extends jdbcConfig implements MaestroRepository {
    public int deleteAll(){
         return jdbcTemplate.update("Delete from maestros");
     }
+    @Override
+    public Maestro login(Maestro alumno){
+        System.out.println(alumno.getNombre());
+        try{
+            Maestro alumnol =  jdbcTemplate.queryForObject(
+                "select * from maestros where matricula=? and contraseña=? ", BeanPropertyRowMapper.newInstance(Maestro.class), alumno.getMatricula(), alumno.getContraseña());
+            return alumnol;
+            }catch(IncorrectResultSizeDataAccessException e){
+            System.out.println(e);
+                return null;
+        }
+    }
 }

@@ -21,6 +21,7 @@ import yo.merengues.schoolapi.data.Repository.MaestroRepository;
 import yo.merengues.schoolapi.data.Repository.MateriaRepository;
 import yo.merengues.schoolapi.model.Alumno;
 import yo.merengues.schoolapi.model.DetalleMateria;
+import yo.merengues.schoolapi.model.Maestro;
 import yo.merengues.schoolapi.model.Materia;
 import yo.merengues.schoolapi.model.detalleMaterias;
 
@@ -38,14 +39,19 @@ public class SchoolController {
     @Autowired
     MaestroRepository maestroRepository;
     @GetMapping(value="/get/alumnos")
-    public ResponseEntity<List<Alumno>> getAlumnos() {
+    public List<Alumno> getAlumnos() {
         List<Alumno> alumnos=  alumnoRepository.findAll();
-        return new ResponseEntity<>(alumnos, HttpStatus.OK);
+        return alumnos;
     }
     @GetMapping(value="/get/alumno/{id}")
     public ResponseEntity<Alumno> getAlumno(@PathVariable int id) {
        Alumno alumnos=  alumnoRepository.findById(id);
         return new ResponseEntity<>(alumnos, HttpStatus.OK);
+    }
+    @GetMapping(value="/get/maestro/{id}")
+    public ResponseEntity<Maestro> getMaestro(@PathVariable int id) {
+       Maestro maestro=  maestroRepository.findById(id);
+        return new ResponseEntity<>(maestro, HttpStatus.OK);
     }
     @GetMapping(value="/get/alumnos/{id}")
     public ResponseEntity<List<Alumno>> getAlumnos(@PathVariable String id) {
@@ -55,6 +61,11 @@ public class SchoolController {
     @PostMapping("/login/alumno")
     public ResponseEntity<Alumno> login(@RequestBody Alumno alumno){
         Alumno alumnoLog= alumnoRepository.login(alumno);
+        return new ResponseEntity<>(alumnoLog, HttpStatus.OK);
+    }
+    @PostMapping("/login/maestro")
+    public ResponseEntity<Maestro> loginMaestro(@RequestBody Maestro maestro){
+        Maestro alumnoLog= maestroRepository.login(maestro);
         return new ResponseEntity<>(alumnoLog, HttpStatus.OK);
     }
     @PostMapping("edit/alumno")
@@ -67,6 +78,18 @@ public class SchoolController {
           return new ResponseEntity<>(alumno,HttpStatus.OK);
       }
     }
+
+    @PostMapping("edit/maestro")
+    public ResponseEntity<Maestro> editMaestro(@RequestBody Maestro maestro){
+      int x= maestroRepository.update(maestro);
+      if(x==0){
+        return new ResponseEntity<>(maestro,HttpStatus.CONFLICT);
+      }
+      else{
+          return new ResponseEntity<>(maestro,HttpStatus.OK);
+      }
+    }
+
     @GetMapping("get/detalle/{id}/{ida}")
         public ResponseEntity<DetalleMateria> getMateria(@PathVariable String id, @PathVariable int ida){
             System.out.println(id);

@@ -15,4 +15,6 @@ public interface MaestroRepository {
     List<Maestro> findAll();
   
     int deleteAll();
+
+    Maestro login(Maestro maestro);
 }
