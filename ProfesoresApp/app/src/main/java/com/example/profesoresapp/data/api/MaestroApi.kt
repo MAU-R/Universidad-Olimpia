@@ -10,6 +10,7 @@ import retrofit2.http.GET
 import retrofit2.http.POST
 
 interface MaestroApi {
+
     @POST("login/maestro")
     fun login(@Body maestro : Profesor) : Call<Profesor>
     @POST("edit/maestro")
