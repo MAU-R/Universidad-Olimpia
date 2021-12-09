@@ -23,5 +23,18 @@
         android:name="com.example.profesoresapp.presentation.materias.MateriaFragment"
         android:label="materiasDetailFragment"
         tools:layout="@layout/materiadetail_fragment"/>
+    <fragment
+        android:id="@+id/cuentaFragment"
+        android:name="com.example.profesoresapp.presentation.profesor.CuentaFragment"
+        android:label="cuenta_fragment"
+        tools:layout="@layout/cuenta_fragment" />
+    <fragment
+        android:id="@+id/loginFragment2"
+        android:name="com.example.profesoresapp.presentation.login.LoginFragment"
+        android:label="LoginFragment" >
+        <action
+            android:id="@+id/action_loginFragment2_to_cuentaFragment"
+            app:destination="@id/cuentaFragment" />
+    </fragment>
 
 </navigation>

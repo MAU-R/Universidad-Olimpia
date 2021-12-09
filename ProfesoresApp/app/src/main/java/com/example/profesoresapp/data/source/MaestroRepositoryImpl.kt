@@ -21,9 +21,9 @@ class MaestroRepositoryImpl @Inject constructor(
         val result = makeRequest(
             networkHandler,maestroApi.login(profesor),
             {
-                it.profesores?.get(0)?:Profesor()
+                it
             },
-            ProfesoresResponse(emptyList())
+            Profesor()
         )
         return result
     }
