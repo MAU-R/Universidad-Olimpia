@@ -8,7 +8,7 @@
         <variable
             name="vm"
             type="com.example.profesoresapp.domain.model.Profesor"/>
-            <!--type="com.example.alumnosapp.presentation.login.LoginViewModel"-->
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -36,7 +36,7 @@
             android:layout_margin="16dp"
             android:hint="@string/matricula"
             android:inputType="text"
-            android:text="@={}"
+            android:text="@{vm.idProfesor}"
             android:textColor="@color/black"
             app:layout_constraintBottom_toTopOf="@id/edtPassword"
             app:layout_constraintEnd_toEndOf="parent"
@@ -50,7 +50,7 @@
             android:layout_margin="16dp"
             android:hint="@string/password"
             android:inputType="textPassword"
-            android:text="@={}"
+            android:text="@{vm.contrasena}"
             android:textColor="@color/black"
             app:layout_constraintBottom_toTopOf="@id/btnDoLogin"
             app:layout_constraintEnd_toEndOf="parent"

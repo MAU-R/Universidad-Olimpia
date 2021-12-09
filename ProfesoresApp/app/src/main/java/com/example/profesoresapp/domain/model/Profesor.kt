@@ -15,6 +15,6 @@ class Profesor(
     @Json(name = "apellido_paterno") val apellidopa: String = "",
     @Json(name = "apellido_materno") val apellidoma: String = "",
     @Json(name = "correo") val correo: String = "",
-    @Json(name="contraseña") val contraseña: String =""
+    @Json(name="contraseña") val contrasena: String =""
 ) {
 }

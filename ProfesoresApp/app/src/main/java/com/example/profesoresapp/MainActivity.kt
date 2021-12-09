@@ -2,13 +2,16 @@ package com.example.profesoresapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.FragmentContainerView
 import androidx.navigation.NavController
 import androidx.navigation.ui.NavigationUI
 import com.example.profesoresapp.core.presentation.BaseActivity
 import com.example.profesoresapp.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : BaseActivity() {
 
     private lateinit var binding : ActivityMainBinding
@@ -43,5 +46,7 @@ class MainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        setBinding()
+        setBottomNavVisibility(View.VISIBLE)
     }
 }

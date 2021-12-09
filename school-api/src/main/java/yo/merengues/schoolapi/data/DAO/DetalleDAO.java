@@ -65,6 +65,17 @@ public class DetalleDAO extends jdbcConfig implements DetalleRepository{
            return null;
    }
   }
+  @Override
+  public DetalleMateria findByIdAndMaestroId(String id, int a){
+  try{
+      DetalleMateria detalle = jdbcTemplate.queryForObject(
+          "SELECT * FROM  detalle_materia where matricula =? and id_maestro=?", BeanPropertyRowMapper.newInstance(DetalleMateria.class),id,a);
+      return detalle;
+      }catch(IncorrectResultSizeDataAccessException e){
+      System.out.println(e);
+          return null;
+  }
+ }
    @Override
    public Materia findByAlumnoId(int id){
     try{

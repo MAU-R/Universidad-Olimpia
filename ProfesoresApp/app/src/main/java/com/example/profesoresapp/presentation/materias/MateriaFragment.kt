@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.View
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
-import com.example.alumnosapp.presentation.materias.MateriaFragmentDirections
 import com.example.profesoresapp.R
 import com.example.profesoresapp.core.extension.failure
 import com.example.profesoresapp.core.extension.observe
@@ -12,7 +11,6 @@ import com.example.profesoresapp.core.presentation.BaseFragment
 import com.example.profesoresapp.core.presentation.BaseViewState
 import com.example.profesoresapp.databinding.MateriaFragmentBinding
 import com.example.profesoresapp.domain.model.Materia
-import com.example.profesoresapp.presentation.materias.MateriaAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import dagger.hilt.android.WithFragmentBindings
 import kotlinx.coroutines.DelicateCoroutinesApi

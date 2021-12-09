@@ -18,6 +18,7 @@ public interface DetalleRepository {
 
     DetalleMateria findById(String id);
     DetalleMateria findByIdAndAlumnoId(String id, int ida);
+    DetalleMateria findByIdAndMaestroId(String id, int ida);
     Materia findByAlumnoId(int id);
     DetalleMateria findByMateriaId(int id);
     DetalleMateria findByMaestroId(int id);

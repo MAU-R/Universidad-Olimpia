@@ -52,14 +52,14 @@ android {
             dimension "practica"
             versionNameSuffix "-dev"
             ext {
-                buildConfigField "String", "API_BASE_URL", "\"https://www.themealdb.com/api/json/v1/1/\""
+              
             }
         }
         prod {
             dimension "practica"
             versionNameSuffix ""
             ext {
-                buildConfigField "String", "API_BASE_URL", "\"https://www.themealdb.com/api/json/v1/1/\""
+
             }
         }
     }

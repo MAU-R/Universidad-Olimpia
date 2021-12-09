@@ -68,7 +68,7 @@ public class SchoolController {
       }
     }
     @GetMapping("get/detalle/{id}/{ida}")
-        public ResponseEntity<detalleMaterias> getMateria(@PathVariable String id, @PathVariable int ida){
+        public ResponseEntity<DetalleMateria> getMateria(@PathVariable String id, @PathVariable int ida){
             System.out.println(id);
             System.out.println(ida);
            try{
@@ -80,13 +80,31 @@ public class SchoolController {
             
             detalle.materia=materia;
             detalle.detalleMateria=det;
-            return new ResponseEntity<>(detalle,HttpStatus.OK);
+            return new ResponseEntity<>(det,HttpStatus.OK);
            }catch(Exception e){
                System.out.println(e);
                return new ResponseEntity<>(null,HttpStatus.CONFLICT);
            }
         }
-    
+        @GetMapping("get/detalle/maestro/{id}/{ida}")
+        public ResponseEntity<DetalleMateria> getMateriaMaestro(@PathVariable String id, @PathVariable int ida){
+            System.out.println(id);
+            System.out.println(ida);
+           try{
+            DetalleMateria det = detalleMateria.findByIdAndAlumnoId(id,ida);
+            System.out.println(det.getId());
+            System.out.println(det.getId_alumno());
+            Materia materia = materiaRepository.findById(det.getId_materia());
+            detalleMaterias detalle = new detalleMaterias();
+            
+            detalle.materia=materia;
+            detalle.detalleMateria=det;
+            return new ResponseEntity<>(det,HttpStatus.OK);
+           }catch(Exception e){
+               System.out.println(e);
+               return new ResponseEntity<>(null,HttpStatus.CONFLICT);
+           }
+        }
     @GetMapping("get/materias/maestro/{id}")
         public ResponseEntity<List<Materia>> getMateriasMaestro(@PathVariable int id){
             List<DetalleMateria> detmaterias= detalleMateria.findAllByMaestroId(id);
@@ -105,6 +123,11 @@ public class SchoolController {
                 materias.add(materiaRepository.findById(detalleMateria.getId_materia()));
             }
             return new ResponseEntity<>(materias,HttpStatus.OK);
+        }
+        @GetMapping("get/materia/{id}")
+        public ResponseEntity<Materia> getMateriaID(@PathVariable int id){
+           Materia materia= materiaRepository.findById(id);
+            return new ResponseEntity<>(materia,HttpStatus.OK);
         }
     @PostMapping("edit/detalle")
     public ResponseEntity<DetalleMateria> editDetalle(@RequestBody DetalleMateria detalle){

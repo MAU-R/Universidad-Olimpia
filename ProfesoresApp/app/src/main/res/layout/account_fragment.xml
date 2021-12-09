@@ -5,7 +5,7 @@
 
         <variable
             name="user"
-            type="com.example.profesoresapp.domain.model.Profesor" />
+            type="com.example.profesoresapp.domain.model.Alumno" />
 
     </data>
 
@@ -17,7 +17,7 @@
 
         <ImageView
             android:id="@+id/imgUser"
-            loadFromURLCircular="@{user.foto}"
+            loadFromUrl="@{user.foto}"
             android:layout_width="180dp"
             android:layout_height="180dp"
             android:layout_margin="16dp"
