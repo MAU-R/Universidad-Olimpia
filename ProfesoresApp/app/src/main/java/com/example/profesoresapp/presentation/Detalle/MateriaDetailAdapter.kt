@@ -15,8 +15,8 @@ import com.example.profesoresapp.core.presentation.BaseFragment
 import com.example.profesoresapp.core.presentation.BaseViewState
 import com.example.profesoresapp.databinding.MateriaFragmentBinding
 import com.example.profesoresapp.databinding.MateriadetailFragmentBinding
-import com.example.profesoresapp.databinding.RowAlumnoBinding
 import com.example.profesoresapp.databinding.RowMateriasBinding
+import com.example.profesoresapp.databinding.RxAlumnoBinding
 import com.example.profesoresapp.domain.model.Alumno
 import com.example.profesoresapp.domain.model.Materia
 import com.example.profesoresapp.presentation.materias.MateriaAdapter
@@ -39,7 +39,7 @@ class MateriaDetailAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ViewHolderItem(
-        RowAlumnoBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        RxAlumnoBinding.inflate(LayoutInflater.from(parent.context), parent, false)
     )
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) =
@@ -47,7 +47,7 @@ class MateriaDetailAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun getItemCount() = list.size
 
-    class ViewHolderItem(private val binding: RowAlumnoBinding) :
+    class ViewHolderItem(private val binding: RxAlumnoBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(data: Alumno, listener: (alumno: Alumno) -> Unit) {

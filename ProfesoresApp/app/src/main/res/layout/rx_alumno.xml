@@ -12,9 +12,9 @@
     </data>
 
     <androidx.cardview.widget.CardView
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp">
+        android:layout_margin="8dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
@@ -22,42 +22,31 @@
 
             <ImageView
                 android:id="@+id/imgSubject"
+
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_margin="10dp"
-                app:layout_constraintEnd_toStartOf="@+id/txvNameMateria"
+                app:layout_constraintBottom_toTopOf="@id/txvNameMateria"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                />
+                tools:src="@tools:sample/avatars"
+                loadFromUrl="@{item.foto}" />
 
             <TextView
                 android:id="@+id/txvNameMateria"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_marginBottom="10dp"
                 android:ellipsize="end"
                 android:lines="1"
                 android:text="@{item.name}"
                 android:textAlignment="center"
-                app:layout_constraintBottom_toTopOf="@+id/txvCorreoAlumno"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/imgSubject"
-                app:layout_constraintTop_toTopOf="@+id/imgSubject"
-                tools:text="Alumnos" />
-            <TextView
-                android:id="@+id/txvCorreoAlumno"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:ellipsize="end"
-                android:lines="1"
-                android:text="@{item.correo}"
-                android:textAlignment="center"
-                app:layout_constraintBottom_toBottomOf="@id/imgSubject"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/imgSubject"
-                app:layout_constraintTop_toBottomOf="@+id/txvNameMateria"
-                tools:text="Correo" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/imgSubject"
+                app:layout_constraintStart_toStartOf="@id/imgSubject"
+                app:layout_constraintTop_toBottomOf="@id/imgSubject"
+                tools:text="Materia" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
