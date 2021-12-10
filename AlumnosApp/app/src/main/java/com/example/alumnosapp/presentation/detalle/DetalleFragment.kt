@@ -51,6 +51,7 @@ class DetalleFragment : BaseFragment(R.layout.detalle_fragment) {
                 binding.txc1.setText(state.detalle.calificacion1.toString())
                 binding.txc2.setText(state.detalle.calificacion2.toString())
                 binding.txc3.setText(state.detalle.calificacion3.toString())
+                binding.dias.setText(state.detalle.dias.toString())
             }
         }
     }

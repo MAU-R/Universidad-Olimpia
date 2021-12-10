@@ -66,22 +66,7 @@
             app:layout_constraintVertical_bias="0.578"
             tools:text="Descripcion" />
 
-        <TextView
-            android:layout_marginTop="35dp"
-            android:id="@+id/txtAlumnos"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:ellipsize="end"
-            android:lines="1"
-            android:text="Nombre"
-            android:textAlignment="center"
-            android:textStyle="bold"
-            android:textSize="25dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/txvDescripcionMateria"
-            tools:text="Materia" />
+
 
         <TextView
             android:id="@+id/txvLikes"
@@ -89,6 +74,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:drawablePadding="10dp"
+            android:layout_marginTop="20dp"
             android:text="Calificaciones"
             android:textColor="@color/black"
             android:textSize="20dp"
@@ -96,7 +82,7 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/txtAlumnos"
+            app:layout_constraintTop_toBottomOf="@id/txvDescripcionMateria"
             tools:text="Calificaciones" />
         <TextView
             android:id="@+id/txcCalificacion1"
@@ -183,6 +169,21 @@
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txcCalificacion2" />
+
+        <TextView
+            android:id="@+id/dias"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="26dp"
+            android:drawablePadding="10dp"
+            android:text="@{detalle.dias}"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:drawableStartCompat="@drawable/ic_baseline_watch_later_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txcCalificacion3"
+            tools:text="horario" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
