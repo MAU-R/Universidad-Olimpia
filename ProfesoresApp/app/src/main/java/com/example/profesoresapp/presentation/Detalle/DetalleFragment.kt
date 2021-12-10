@@ -57,7 +57,6 @@ class DetalleFragment :  BaseFragment(R.layout.detalle_fragment) {
         }
 
         binding.rcAlumnos.apply {
-             isVisible=alumnos.isNotEmpty()
             adapter = this@DetalleFragment.adapter
         }
 

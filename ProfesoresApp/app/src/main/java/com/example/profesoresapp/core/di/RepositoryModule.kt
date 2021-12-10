@@ -47,7 +47,7 @@ object RepositoryModule {
 
     @Provides
     @Singleton
-    fun provideMaestroRepository(
+    fun provideMateriaRepository(
         apiProvider: ApiProvider,
         networkHandler: NetworkHandler
     ): MateriaRepository =
