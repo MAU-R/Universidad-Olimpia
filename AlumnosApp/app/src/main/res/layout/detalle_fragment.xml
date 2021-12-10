@@ -4,11 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
-        <variable
-            name="user"
-            type="com.example.alumnosapp.domain.model.Alumno" />
-
         <variable
             name="detalle"
             type="com.example.alumnosapp.domain.model.DetallesMateria" />
@@ -45,7 +40,7 @@
             android:textAlignment="center"
             android:textSize="18dp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@id/imgSubject"
+            app:layout_constraintBottom_toTopOf="@+id/txvDescripcionMateria"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imgSubject"
             app:layout_constraintTop_toTopOf="@+id/imgSubject"
@@ -58,7 +53,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:ellipsize="end"
-            android:lines="1"
+            android:lines="3"
             android:text="@{clase.descripcion}"
             android:textAlignment="center"
             android:textSize="18dp"
@@ -67,7 +62,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.526"
             app:layout_constraintStart_toEndOf="@+id/imgSubject"
-            app:layout_constraintTop_toTopOf="@+id/imgSubject"
+            app:layout_constraintTop_toBottomOf="@+id/txvNameMateria"
             app:layout_constraintVertical_bias="0.578"
             tools:text="Descripcion" />
 
@@ -85,7 +80,7 @@
             android:textSize="25dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/imgSubject"
+            app:layout_constraintTop_toBottomOf="@id/txvDescripcionMateria"
             tools:text="Materia" />
 
         <TextView

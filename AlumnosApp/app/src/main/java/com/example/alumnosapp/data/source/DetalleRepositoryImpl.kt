@@ -8,6 +8,7 @@ import com.example.alumnosapp.data.dto.DetalleResponse
 import com.example.alumnosapp.data.dto.MateriasResponse
 import com.example.alumnosapp.domain.model.DetallesMateria
 import com.example.alumnosapp.domain.model.Materia
+import com.example.alumnosapp.domain.model.TwoIds
 import com.example.alumnosapp.domain.repository.DetalleRepository
 import com.example.alumnosapp.framework.api.ApiRequest
 import javax.inject.Inject
@@ -26,13 +27,13 @@ class DetalleRepositoryImpl @Inject constructor(
         return result
     }
 
-    override fun getDetalleMateria(id: Int, ida: Int): Either<Failure, DetallesMateria> {
+    override fun getDetalleMateria(ids: TwoIds): Either<Failure, DetallesMateria> {
         val result = makeRequest(
-            networkHandler, detalleApi.getDetalleMateria(id, ida),{it.detalles?.get(0)?: DetallesMateria()},
-            DetalleResponse(
-                emptyList()
-            )
+            networkHandler, detalleApi.getDetalleMateria(ids),{it},
+            DetallesMateria()
         )
         return result
     }
+
+
 }
