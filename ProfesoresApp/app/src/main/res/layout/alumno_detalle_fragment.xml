@@ -80,7 +80,7 @@
             android:layout_height="wrap_content"
             android:hint="0"
             android:id="@+id/edtC1"
-
+            android:layout_marginTop="5dp"
             app:layout_constraintStart_toEndOf="@id/txcCalificacion1"
             app:layout_constraintTop_toBottomOf="@id/txvLikes"
             />
@@ -103,7 +103,7 @@
             android:layout_height="wrap_content"
             android:hint="0"
             android:id="@+id/edtC2"
-
+            android:layout_marginTop="5dp"
             app:layout_constraintStart_toEndOf="@id/txcCalificacion2"
             app:layout_constraintTop_toBottomOf="@id/edtC1"
             />
@@ -113,7 +113,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:drawablePadding="10dp"
-            android:text="Calificacion 1"
+            android:text="Calificacion 3"
             android:textColor="@color/black"
             android:textSize="18sp"
             android:layout_marginRight="10dp"
@@ -126,7 +126,7 @@
             android:layout_height="wrap_content"
             android:hint="0"
             android:id="@+id/edtC3"
-
+            android:layout_marginTop="5dp"
             app:layout_constraintStart_toEndOf="@id/txcCalificacion3"
             app:layout_constraintTop_toBottomOf="@id/edtC2"
             />

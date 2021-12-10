@@ -14,5 +14,5 @@ interface AlumnoApi {
     fun login(@Body alumno : Alumno) : Call<Alumno>
 
     @POST("edit/alumno")
-    fun updateAlumno(@Body alumno: Alumno): Call<AlumnosResponse>
+    fun updateAlumno(@Body alumno: Alumno): Call<Alumno>
 }

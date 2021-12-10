@@ -79,12 +79,19 @@ class AlumnoDetalleFragment :  BaseFragment(R.layout.alumno_detalle_fragment) {
 
         binding.apply {
             btnGuardar.setOnClickListener {
-                detalleIngreso.calificacion1=binding.edtC1.text.toString().toDouble()
-                detalleIngreso.calificacion2=binding.edtC2.text.toString().toDouble()
-                detalleIngreso.calificacion3=binding.edtC3.text.toString().toDouble()
-                Log.d("Variable esta", detalleIngreso.calificacion1.toString())
-                alumnosViewModel.doSaveDetalle(detalleIngreso)
-                navController.popBackStack()
+               try{
+                   detalleIngreso.calificacion1=binding.edtC1.text.toString().toDouble()
+                   detalleIngreso.calificacion2=binding.edtC2.text.toString().toDouble()
+                   detalleIngreso.calificacion3=binding.edtC3.text.toString().toDouble()
+                   Log.d("Variable esta", detalleIngreso.calificacion1.toString())
+                   alumnosViewModel.doSaveDetalle(detalleIngreso)
+                   navController.popBackStack()
+               }catch (ex:Exception){
+
+               }finally {
+
+               }
+
             }
             user=args.alumno
         }

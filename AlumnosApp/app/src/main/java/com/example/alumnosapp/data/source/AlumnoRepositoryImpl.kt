@@ -29,9 +29,9 @@ class AlumnoRepositoryImpl @Inject constructor(
     override fun updateProfile(alumno: Alumno): Either<Failure, Alumno> {
         val result= makeRequest(
             networkHandler,alumnoApi.updateAlumno(alumno),{
-                it.alumnos?.get(0)?:Alumno()
+                it
             },
-            AlumnosResponse(emptyList())
+           Alumno()
         )
         return result
     }

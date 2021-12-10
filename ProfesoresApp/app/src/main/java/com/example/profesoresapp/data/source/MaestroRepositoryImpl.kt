@@ -31,9 +31,9 @@ class MaestroRepositoryImpl @Inject constructor(
     override fun updateProfile(profesor: Profesor): Either<Failure, Profesor> {
         val result= makeRequest(
             networkHandler,maestroApi.updateMaestro(profesor),{
-                it.profesores?.get(0)?:Profesor()
+                it
             },
-            ProfesoresResponse(emptyList())
+            Profesor()
         )
         return result
     }

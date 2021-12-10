@@ -15,6 +15,6 @@ interface MaestroApi {
     fun login(@Body maestro : Profesor) : Call<Profesor>
 
     @POST("edit/maestro")
-    fun updateMaestro(@Body maestro: Profesor): Call<ProfesoresResponse>
+    fun updateMaestro(@Body maestro: Profesor): Call<Profesor>
 
 }

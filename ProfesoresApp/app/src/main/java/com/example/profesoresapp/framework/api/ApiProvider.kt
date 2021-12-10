@@ -27,7 +27,7 @@ class ApiProvider @Inject constructor() {
         }
 
         retrofit = Retrofit.Builder()
-            .baseUrl("http://189.162.23.43:8080/school/")
+            .baseUrl("http://189.162.163.160:8080/school/")
             .addConverterFactory(MoshiConverterFactory.create())
             .client(httpClientBuilder.build())
             .build()

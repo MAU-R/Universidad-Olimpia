@@ -26,7 +26,7 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:src="@tools:sample/avatars" />
 
-        <TextView
+        <EditText
             android:id="@+id/txvUsername"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -41,8 +41,8 @@
             app:layout_constraintTop_toBottomOf="@id/imgUser"
             tools:text="UserName" />
 
-        <TextView
-            android:id="@+id/txvCorreo"
+        <EditText
+            android:id="@+id/txvcorreo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
@@ -56,6 +56,41 @@
             app:layout_constraintTop_toBottomOf="@id/txvUsername"
             tools:text="Correo" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="Nueva Contraseña:"
+            android:layout_marginTop="20dp"
+            android:id="@+id/txvcon"
+            android:textSize="20dp"
+            android:layout_marginRight="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/txvcorreo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/edtContraseña"
+            />
+        <EditText
+            android:id="@+id/edtContraseña"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@{user.password}"
+            android:hint="contraseña"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@+id/txvcon"
+            app:layout_constraintTop_toBottomOf="@id/txvcorreo"
+            tools:text="contra" />
+        <Button
+            android:id="@+id/btnGuardar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="Guardar usuario"
+            android:backgroundTint="#ff8000"
+            app:layout_constraintBottom_toTopOf="@+id/btnLogout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
         <Button
             android:id="@+id/btnLogout"
             android:layout_width="0dp"

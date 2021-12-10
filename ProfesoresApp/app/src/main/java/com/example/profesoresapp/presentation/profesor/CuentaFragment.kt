@@ -15,6 +15,7 @@ import com.example.profesoresapp.core.presentation.BaseFragment
 import com.example.profesoresapp.core.presentation.BaseViewState
 import com.example.profesoresapp.databinding.CuentaFragmentBinding
 import com.example.profesoresapp.databinding.LoginFragmentBinding
+import com.example.profesoresapp.domain.model.Profesor
 import com.example.profesoresapp.presentation.login.LoginFragmentDirections
 import com.example.profesoresapp.presentation.login.LoginViewModel
 import com.example.profesoresapp.presentation.login.LoginViewState
@@ -29,7 +30,7 @@ class CuentaFragment :  BaseFragment(R.layout.cuenta_fragment) {
 
     private lateinit var binding: CuentaFragmentBinding
     private val cuentaViewModel by viewModels<CuentaViewModel>()
-
+    private lateinit var loged:Profesor
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -49,7 +50,10 @@ class CuentaFragment :  BaseFragment(R.layout.cuenta_fragment) {
         when (state) {
 
             is CuentaViewState.LoggedUser->
+            {
                 binding.user= state.profesor;
+                loged=state.profesor
+            }
             is CuentaViewState.UserNotFound->
                 navController.navigate(CuentaFragmentDirections.actionCuentaFragmentToLoginFragment2())
         }
@@ -68,6 +72,14 @@ class CuentaFragment :  BaseFragment(R.layout.cuenta_fragment) {
             lifecycleOwner= this@CuentaFragment
             btnLogout.setOnClickListener {
                 cuentaViewModel.logout()
+            }
+            btnGuardar.setOnClickListener {
+                loged.name=txvUsername.text.toString()
+                loged.correo=txvcorreo.text.toString()
+                loged.contrasena=edtContraseA.text.toString()
+                cuentaViewModel.guardar(loged)
+                cuentaViewModel.doSaveLocalUser(loged)
+                cuentaViewModel.getLocalUser()
             }
         }
 

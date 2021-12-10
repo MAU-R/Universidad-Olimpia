@@ -13,6 +13,7 @@ import com.example.alumnosapp.core.extension.observe
 import com.example.alumnosapp.core.presentation.BaseFragment
 import com.example.alumnosapp.core.presentation.BaseViewState
 import com.example.alumnosapp.databinding.AccountFragmentBinding
+import com.example.alumnosapp.domain.model.Alumno
 import com.example.alumnosapp.presentation.login.LoginFragmentDirections
 import com.example.alumnosapp.presentation.login.LoginViewState
 import dagger.hilt.android.AndroidEntryPoint
@@ -26,7 +27,7 @@ class AccountFragment :  BaseFragment(R.layout.account_fragment) {
 
     private lateinit var binding: AccountFragmentBinding
     private val accountViewModel by viewModels<AccountViewModel>()
-
+    private lateinit var loged:Alumno
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -46,7 +47,10 @@ class AccountFragment :  BaseFragment(R.layout.account_fragment) {
         when (state) {
 
             is AccountViewState.LoggedUser->
+            {
                 binding.user= state.alumno;
+                loged=state.alumno
+            }
             is AccountViewState.UserNotFound->
                 navController.navigate(AccountFragmentDirections.actionAccountFragmentToLoginFragment())
         }
@@ -65,6 +69,14 @@ class AccountFragment :  BaseFragment(R.layout.account_fragment) {
             lifecycleOwner= this@AccountFragment
             btnLogout.setOnClickListener {
                 accountViewModel.logout()
+            }
+            btnGuardar.setOnClickListener {
+                loged.name=txvUsername.text.toString()
+                loged.correo=txvcorreo.text.toString()
+                loged.password=edtContraseA.text.toString()
+                accountViewModel.guardar(loged)
+                accountViewModel.doSaveLocalUser(loged)
+                accountViewModel.getLocalUser()
             }
         }
 
