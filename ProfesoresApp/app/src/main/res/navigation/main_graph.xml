@@ -39,6 +39,19 @@
         android:label="DetalleFragment" >
         <argument android:name="clase"
             app:argType="com.example.profesoresapp.domain.model.Materia"/>
+        <action
+            android:id="@+id/action_detalleFragment_to_alumnoDetalleFragment"
+            app:destination="@id/alumnoDetalleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/alumnoDetalleFragment"
+        android:name="com.example.profesoresapp.presentation.alumnoDetalle.AlumnoDetalleFragment"
+        android:label="alumno_detalle_fragment"
+        tools:layout="@layout/alumno_detalle_fragment" >
+        <argument android:name="alumno"
+            app:argType="com.example.profesoresapp.domain.model.Alumno"/>
+        <argument android:name="matricula"
+            app:argType="integer" />
     </fragment>
 
 </navigation>

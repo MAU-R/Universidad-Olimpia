@@ -1,8 +1,11 @@
 package com.example.profesoresapp.domain.model
 
+import android.os.Parcelable
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 @JsonClass(generateAdapter = true)
 class Alumno(
     @Json (name="matricula")  val idAlumno: Int = 0,
@@ -12,5 +15,5 @@ class Alumno(
     @Json(name = "apellido_materno") val apellidoma: String = "",
     @Json(name = "correo") val correo: String = "",
     @Json(name="contraseña") val contraseña: String =""
-) {
+) :Parcelable{
 }

@@ -12,6 +12,7 @@ import com.example.profesoresapp.core.presentation.BaseFragment
 import com.example.profesoresapp.core.presentation.BaseViewState
 import com.example.profesoresapp.databinding.DetalleFragmentBinding
 import com.example.profesoresapp.domain.model.Alumno
+import com.example.profesoresapp.domain.model.TwoIds
 
 import dagger.hilt.android.AndroidEntryPoint
 import dagger.hilt.android.WithFragmentBindings
@@ -38,7 +39,7 @@ class DetalleFragment :  BaseFragment(R.layout.detalle_fragment) {
     override fun onResume() {
         super.onResume()
         binding.clase= args.clase
-        materiasViewModel.doGetAlumnosPorMateria("2021-12-041")
+        materiasViewModel.doGetDetalleMateria(args.clase.idMateria)
     }
 
     override fun onViewStateChanged(state: BaseViewState?) {
@@ -51,9 +52,9 @@ class DetalleFragment :  BaseFragment(R.layout.detalle_fragment) {
     private fun setUpAdapter(alumnos: List<Alumno>) {
         adapter.addData(alumnos)
         adapter.setListener {
-            /* navController.navigate(
-
-             )*/
+             navController.navigate(
+                DetalleFragmentDirections.actionDetalleFragmentToAlumnoDetalleFragment(it,args.clase.idMateria)
+             )
         }
 
         binding.rcAlumnos.apply {

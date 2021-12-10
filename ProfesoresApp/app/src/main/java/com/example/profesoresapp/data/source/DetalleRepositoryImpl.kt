@@ -11,6 +11,7 @@ import com.example.profesoresapp.data.dto.MateriasResponse
 import com.example.profesoresapp.domain.model.Alumno
 import com.example.profesoresapp.domain.model.DetallesMateria
 import com.example.profesoresapp.domain.model.Materia
+import com.example.profesoresapp.domain.model.TwoIds
 import com.example.profesoresapp.domain.repository.DetalleRepository
 import com.example.profesoresapp.domain.repository.MateriaRepository
 import com.example.profesoresapp.framework.api.ApiRequest
@@ -37,12 +38,17 @@ class DetalleRepositoryImpl @Inject constructor(
         return result
     }
 
-    override fun getDetalleMateria(id: Int, ida: Int): Either<Failure, DetallesMateria> {
+    override fun getDetalleMateria(ids:TwoIds): Either<Failure, DetallesMateria> {
         val result = makeRequest(
-            networkHandler, detalleApi.getDetalleMateria(id, ida),{it.detalles?.get(0)?: DetallesMateria()},
-            DetalleResponse(
-                emptyList()
-            )
+            networkHandler, detalleApi.getDetalleMateria(ids),{it?: DetallesMateria()},
+            DetallesMateria()
+        )
+        return result
+    }
+
+    override fun editDetalleMateria(detalle: DetallesMateria): Either<Failure, DetallesMateria> {
+        val result = makeRequest(
+            networkHandler,detalleApi.editDetalles(detalle),{it},DetallesMateria()
         )
         return result
     }

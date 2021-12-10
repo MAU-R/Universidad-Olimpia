@@ -4,7 +4,9 @@ import com.example.profesoresapp.data.dto.AlumnosResponse
 import com.example.profesoresapp.data.dto.DetalleResponse
 import com.example.profesoresapp.data.dto.MateriasResponse
 import com.example.profesoresapp.domain.model.Alumno
+import com.example.profesoresapp.domain.model.DetallesMateria
 import com.example.profesoresapp.domain.model.Materia
+import com.example.profesoresapp.domain.model.TwoIds
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -18,6 +20,8 @@ interface DetalleApi {
     fun getMateriasPorProfesor(@Path("id")id:Int): Call<List<Materia>>
     @GET("get/alumnos/{id}")
     fun getAlumnosPorMateria(@Path("id") id:String): Call<List<Alumno>>
-    @GET("get/detalle/maestro/{id}/{ida}")
-    fun getDetalleMateria(@Path("id") id: Int, @Path("ida")ida:Int): Call<DetalleResponse>
+    @POST("get/detalle/maestro")
+    fun getDetalleMateria(@Body ids: TwoIds): Call<DetallesMateria>
+    @POST("edit/detalle")
+    fun editDetalles(@Body detalle:DetallesMateria):Call<DetallesMateria>
 }
