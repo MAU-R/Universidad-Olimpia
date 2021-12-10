@@ -11,7 +11,7 @@ import retrofit2.http.Query
 
 interface DetalleApi {
 
-    @GET("get/materias/alumno/{id}")
+    @GET("get/materias/alumnos/{id}")
     fun getMateriasPorAlumno(@Path("id")id:Int): Call<List<Materia>>
 
     @GET("get/detalle/alumno/{id}/{ida}")
