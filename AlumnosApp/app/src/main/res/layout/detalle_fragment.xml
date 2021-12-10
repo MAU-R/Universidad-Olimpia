@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="user"
+            type="com.example.alumnosapp.domain.model.Alumno" />
+
+        <variable
+            name="detalle"
+            type="com.example.alumnosapp.domain.model.DetallesMateria" />
+
+        <variable
+            name="clase"
+            type="com.example.alumnosapp.domain.model.Materia" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="16dp">
+
+        <ImageView
+            android:id="@+id/imgSubject"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="10dp"
+            app:layout_constraintEnd_toStartOf="@+id/txvNameMateria"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            loadFromUrl="@{clase.foto}" />
+
+        <TextView
+            android:id="@+id/txvNameMateria"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="@{clase.name}"
+            android:textAlignment="center"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/imgSubject"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imgSubject"
+            app:layout_constraintTop_toTopOf="@+id/imgSubject"
+            app:layout_constraintVertical_bias="0.0"
+            tools:text="Materia" />
+
+        <TextView
+            android:id="@+id/txvDescripcionMateria"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="@{clase.descripcion}"
+            android:textAlignment="center"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/imgSubject"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.526"
+            app:layout_constraintStart_toEndOf="@+id/imgSubject"
+            app:layout_constraintTop_toTopOf="@+id/imgSubject"
+            app:layout_constraintVertical_bias="0.578"
+            tools:text="Descripcion" />
+
+        <TextView
+            android:layout_marginTop="35dp"
+            android:id="@+id/txtAlumnos"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="Nombre"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:textSize="25dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imgSubject"
+            tools:text="Materia" />
+
+        <TextView
+            android:id="@+id/txvLikes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:drawablePadding="10dp"
+            android:text="Calificaciones"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtAlumnos"
+            tools:text="Calificaciones" />
+        <TextView
+            android:id="@+id/txcCalificacion1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:drawablePadding="10dp"
+            android:text="Calificacion 1"
+            android:layout_marginRight="10dp"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@id/txc1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txvLikes" />
+
+        <TextView
+            android:id="@+id/txc1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:drawablePadding="10dp"
+            android:text="1"
+            android:layout_marginRight="10dp"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@id/txc1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txvLikes" />
+
+        <TextView
+            android:id="@+id/txcCalificacion2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:layout_marginRight="10dp"
+            android:drawablePadding="10dp"
+            android:text="Calificacion 2"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txcCalificacion1" />
+
+        <TextView
+            android:id="@+id/txc2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="10dp"
+            android:drawablePadding="10dp"
+            android:text="2"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/txcCalificacion2"
+            app:layout_constraintTop_toBottomOf="@+id/txc1" />
+
+        <TextView
+            android:id="@+id/txc3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="10dp"
+            android:drawablePadding="10dp"
+            android:text="3"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/txcCalificacion3"
+            app:layout_constraintTop_toBottomOf="@+id/txc2" />
+
+        <TextView
+            android:id="@+id/txcCalificacion3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:layout_marginRight="10dp"
+            android:drawablePadding="10dp"
+            android:text="Calificacion 3"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txcCalificacion2" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

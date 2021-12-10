@@ -52,8 +52,8 @@ class MateriaFragment : BaseFragment(R.layout.materia_fragment) {
 
         adapter.setListener {
             navController.navigate(
-                MateriaFragmentDirections.actionMateriaFragmentToMateriaDetailFragment(
-                    //it.name
+                MateriaFragmentDirections.actionMateriaFragmentToDetalleFragment(
+                    it
                 )
             )
         }

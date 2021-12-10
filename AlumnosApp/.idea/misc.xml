@@ -23,6 +23,12 @@
         <entry key="..\:/cruza/Escuela/5/Taller de desarrollo movil para plataforma Android/Ejercicios/AndroidMau/Universidad-Olimpia/AlumnosApp/app/src/main/res/menu/bottom_menu_nav.xml" value="0.20416666666666666" />
         <entry key="..\:/cruza/Escuela/5/Taller de desarrollo movil para plataforma Android/Ejercicios/AndroidMau/Universidad-Olimpia/AlumnosApp/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2203125" />
         <entry key="..\:/cruza/Escuela/5/Taller de desarrollo movil para plataforma Android/Ejercicios/AndroidMau/Universidad-Olimpia/AlumnosApp/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.2203125" />
+        <entry key="..\:/cruza/Escuela/Universidad-Olimpia-141c27c4778ac4f9a1f72e4f4918c151a00913bd/AlumnosApp/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
+        <entry key="..\:/cruza/Escuela/Universidad-Olimpia-141c27c4778ac4f9a1f72e4f4918c151a00913bd/AlumnosApp/app/src/main/res/layout/detalle_fragment.xml" value="0.18280871670702178" />
+        <entry key="..\:/cruza/Escuela/Universidad-Olimpia-141c27c4778ac4f9a1f72e4f4918c151a00913bd/AlumnosApp/app/src/main/res/layout/empty_view.xml" value="0.20416666666666666" />
+        <entry key="..\:/cruza/Escuela/Universidad-Olimpia-141c27c4778ac4f9a1f72e4f4918c151a00913bd/AlumnosApp/app/src/main/res/layout/materia_fragment.xml" value="0.15729166666666666" />
+        <entry key="..\:/cruza/Escuela/Universidad-Olimpia-141c27c4778ac4f9a1f72e4f4918c151a00913bd/AlumnosApp/app/src/main/res/layout/materiadetail_fragment.xml" value="0.20416666666666666" />
+        <entry key="..\:/cruza/Escuela/Universidad-Olimpia-141c27c4778ac4f9a1f72e4f4918c151a00913bd/AlumnosApp/app/src/main/res/layout/row_materias.xml" value="0.20416666666666666" />
       </map>
     </option>
   </component>

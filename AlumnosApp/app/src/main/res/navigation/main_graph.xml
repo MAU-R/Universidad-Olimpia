@@ -11,18 +11,21 @@
         android:label="materiasFragment"
         tools:layout="@layout/materia_fragment">
         <action
-            android:id="@+id/action_materiaFragment_to_materiaDetailFragment"
-            app:destination="@id/materiaDetailFragment"
+            android:id="@+id/action_materiaFragment_to_detalleFragment"
+            app:destination="@id/detalleFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
-        android:id="@+id/materiaDetailFragment"
-        android:name="com.example.alumnosapp.presentation.materias.MateriaFragment"
-        android:label="materiasDetailFragment"
-        tools:layout="@layout/materiadetail_fragment"/>
+        android:id="@+id/detalleFragment"
+        android:name="com.example.alumnosapp.presentation.detalle.DetalleFragment"
+        android:label="detalleFragment"
+        tools:layout="@layout/detalle_fragment">
+        <argument android:name="clase"
+        app:argType="com.example.alumnosapp.domain.model.Materia"/>
+    </fragment>
     <fragment
         android:id="@+id/accountFragment"
         android:name="com.example.alumnosapp.presentation.alumno.AccountFragment"
